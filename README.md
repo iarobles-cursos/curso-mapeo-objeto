@@ -1,5 +1,4 @@
-# curso-mapeo-objeto
-Curso Mapeo/Objeto Relacional en la UACM.
+# Curso Mapeo/Objeto Relacional en la UACM.
 
 Diapositivas del curso: 
 https://docs.google.com/presentation/d/1WQhjKpWdoYNUowlWNCYoZIdIYbW8BSRx3_zJPoEfem4/edit?usp=sharing
