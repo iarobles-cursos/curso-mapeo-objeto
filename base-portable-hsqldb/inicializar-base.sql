@@ -80,10 +80,10 @@ CREATE TABLE departamentos_usuarios(
 
 /************** DATOS PARA EJERCICIOS ONE-TO-ONE ***************/
 
-INSERT INTO datos_usuarios(id,biografia,fecha_registro) VALUES(DEFAULT,'Usuario ficticio 1 creado para el curso de XML', '2013-10-20');
+INSERT INTO datos_usuarios(id,biografia,fecha_registro) VALUES(DEFAULT,'Usuario ficticio 1 creado para el curso', '2013-10-20');
 INSERT INTO usuarios(id, datos_autor_id, nombre, email, password, rol, activo) VALUES(DEFAULT,1,'Juan Perez', 'juan@email.com','1234','ROLE_EDITOR',true);
 
-INSERT INTO datos_usuarios(id,biografia,fecha_registro) VALUES(DEFAULT,'Usuario ficticio 2 creado para el curso de XML', '2013-10-20');
+INSERT INTO datos_usuarios(id,biografia,fecha_registro) VALUES(DEFAULT,'Usuario ficticio 2 creado para el curso', '2013-10-20');
 INSERT INTO usuarios(id, datos_autor_id, nombre, email, password,rol,activo) VALUES(DEFAULT,2,'Pepe', 'pepe@email.com','1234','ROLE_ADMIN',true);
 
 /************** DATOS PARA EJERCICIO ONE-TO-MANY ***************/
@@ -98,7 +98,7 @@ INSERT INTO comentarios VALUES(DEFAULT, 1, 'mi comentario 2','anonimo','2013-11-
 
 INSERT INTO categorias VALUES(DEFAULT, 'java');
 INSERT INTO categorias VALUES(DEFAULT, 'linux');
-INSERT INTO categorias VALUES(DEFAULT, 'xml');
+INSERT INTO categorias VALUES(DEFAULT, 'jpa');
 
 INSERT INTO categorias_articulos VALUES(1,1);
 INSERT INTO categorias_articulos VALUES(2,1);
