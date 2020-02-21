@@ -39,6 +39,7 @@ public class IntroJPA {
         //TRANSACCION PROGRAMATICA
         
         Articulo a2=new Articulo();
+        a2.setId(2);
         a2.setTitulo("titulo nuevo");
         a2.setContenido("contenido nuevo");
         a2.setFechaCreacion(new Date());
