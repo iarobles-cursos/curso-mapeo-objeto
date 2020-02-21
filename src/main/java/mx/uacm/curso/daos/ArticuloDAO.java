@@ -11,13 +11,6 @@ import mx.uacm.curso.entidades.Articulo;
  *
  * @author Alumno
  */
-public interface ArticuloDAO {
-    
-    //IMPLEMENTAMOS LOS METODOS CRUD
-    public Articulo buscarPorId(Integer id);
-    
-    public Articulo guardar(Articulo a);
-    
-    public void remover(Articulo a);
+public interface ArticuloDAO extends GenericDAO<Articulo,Integer> {
     
 }
