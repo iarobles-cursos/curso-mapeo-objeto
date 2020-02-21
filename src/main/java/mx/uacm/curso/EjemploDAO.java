@@ -10,7 +10,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import mx.uacm.curso.daos.ArticuloDAO;
 import mx.uacm.curso.daos.ArticuloDAOImpl;
+import mx.uacm.curso.daos.UsuarioDAO;
+import mx.uacm.curso.daos.UsuarioDAOImpl;
 import mx.uacm.curso.entidades.Articulo;
+import mx.uacm.curso.entidades.Usuario;
 
 /**
  *
@@ -32,6 +35,10 @@ public class EjemploDAO {
         Articulo a = new Articulo();
         a.setTitulo("nuevo titulo (dao)");        
         aDAO.guardar(a);
+        
+        UsuarioDAO uDAO = new UsuarioDAOImpl(em);
+        Usuario u = uDAO.buscarPorId(1);
+        System.out.println("nombre:" + u.getNombre());
         
         em.getTransaction().commit();
 
