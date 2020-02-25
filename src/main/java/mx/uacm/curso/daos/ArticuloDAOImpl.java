@@ -14,7 +14,8 @@ import mx.uacm.curso.entidades.Articulo;
  */
 public class ArticuloDAOImpl extends GenericDAOImpl<Articulo, Integer> implements ArticuloDAO{
 
-    public ArticuloDAOImpl(EntityManager em, Class<Articulo> clase) {
-        super(em, clase);
+    public ArticuloDAOImpl(EntityManager em) {
+        //invocamos al constructor del padre
+        super(em, Articulo.class);
     }
 }

@@ -11,12 +11,7 @@ import mx.uacm.curso.entidades.Usuario;
  *
  * @author Alumno
  */
-public interface UsuarioDAO {
+public interface UsuarioDAO extends GenericDAO<Usuario,Integer>{
+      //LOS METODOS DE ESTA INTEFAZ LOS HEREDA DE GENERIC DAO
         
-    //IMPLEMENTAMOS LOS METODOS CRUD
-    public Usuario buscarPorId(Integer id);
-    
-    public Usuario guardar(Usuario a);
-    
-    public void remover(Usuario a);
 }
