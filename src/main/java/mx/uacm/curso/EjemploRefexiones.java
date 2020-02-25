@@ -32,8 +32,7 @@ public class EjemploRefexiones {
             for(Annotation anotacion:campo.getAnnotations() ){
                 System.out.println("anotacion:" + anotacion);
             }
-            
-            
+                       
         }
     }
     

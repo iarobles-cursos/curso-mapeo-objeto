@@ -15,8 +15,8 @@ import mx.uacm.curso.entidades.Usuario;
  */
 public class UsuarioDAOImpl extends GenericDAOImpl<Usuario,Integer> implements UsuarioDAO{
     
-    public UsuarioDAOImpl(EntityManager em, Class<Usuario> clase) {
-        super(em, clase);
+    public UsuarioDAOImpl(EntityManager em) {
+        super(em, Usuario.class);
     }
     
 }
