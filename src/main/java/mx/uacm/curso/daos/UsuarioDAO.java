@@ -5,13 +5,18 @@
  */
 package mx.uacm.curso.daos;
 
-import mx.uacm.curso.entidades.Articulo;
 import mx.uacm.curso.entidades.Usuario;
 
 /**
  *
  * @author Alumno
  */
-public interface UsuarioDAO extends GenericDAO<Usuario, Integer> {
+public interface UsuarioDAO {
         
+    //IMPLEMENTAMOS LOS METODOS CRUD
+    public Usuario buscarPorId(Integer id);
+    
+    public Usuario guardar(Usuario a);
+    
+    public void remover(Usuario a);
 }
