@@ -13,12 +13,17 @@ import mx.uacm.curso.entidades.Articulo;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 /**
  *
  * @author Alumno
  */
+//configuramos junit para ordenar usando annotations
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ArticuloDAOTest {
     
     private static EntityManager em;
@@ -31,7 +36,7 @@ public class ArticuloDAOTest {
     @BeforeAll
     public static void inicializar() {
         System.out.println("inicializar");
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("blog-pruebas");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("blog-pruebas-memoria");
         em = emf.createEntityManager();
         em.getTransaction().begin(); //iniciamos transaccion
         articuloDAO = new ArticuloDAOImpl(em);
@@ -47,6 +52,7 @@ public class ArticuloDAOTest {
     }
     
     @Test
+    @Order(1)
     public void buscarArticuloTest(){
         
         Articulo a = articuloDAO.buscarPorId(1);
@@ -59,6 +65,7 @@ public class ArticuloDAOTest {
     }
     
     @Test
+    @Order(2)
     public void guardarArticuloTest(){
         
         Articulo a = new Articulo();
@@ -79,15 +86,17 @@ public class ArticuloDAOTest {
     }
     
     @Test
+    @Order(3)
     public void removerArticuloTest(){
         //verifique que funciona el remover con el renglon
-        //que insertaron en la base
-        
-        //primero invocar remover del dao con el ultimo articulo
-        
-        //buscan ese articulo y revisan que sea null
-        //assertNull        
-        
+        //que insertaron en la base        
+        //el renglon 3 siempre se genera en la base de datos
+        //en memoria ram
+        Articulo a = articuloDAO.buscarPorId(3);
+        articuloDAO.remover(a);
+        Articulo a2 = articuloDAO.buscarPorId(3);
+        //revisamos que el articulo se haya borrado
+        Assertions.assertNull(a2);        
     }
 
 }
