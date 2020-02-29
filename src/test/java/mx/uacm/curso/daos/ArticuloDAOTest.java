@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import mx.uacm.curso.entidades.Articulo;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -29,9 +30,20 @@ public class ArticuloDAOTest {
     //sea estatico el metodo
     @BeforeAll
     public static void inicializar() {
+        System.out.println("inicializar");
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("blog-pruebas");
         em = emf.createEntityManager();
+        em.getTransaction().begin(); //iniciamos transaccion
         articuloDAO = new ArticuloDAOImpl(em);
+    }
+    
+    @AfterAll
+    //ejecuta despues de todos los tests
+    public static void terminar(){
+        //rollback es para deshacer todos los cambios
+        //dentro de la transaccion
+        System.out.println("terminar");
+        em.getTransaction().rollback();
     }
     
     @Test
@@ -64,6 +76,18 @@ public class ArticuloDAOTest {
         Assertions.assertEquals(a.getContenido(),a2.getContenido());
         Assertions.assertEquals(a.getTitulo(),a2.getTitulo());
         Assertions.assertEquals(a.getFechaCreacion(),a2.getFechaCreacion());
+    }
+    
+    @Test
+    public void removerArticuloTest(){
+        //verifique que funciona el remover con el renglon
+        //que insertaron en la base
+        
+        //primero invocar remover del dao con el ultimo articulo
+        
+        //buscan ese articulo y revisan que sea null
+        //assertNull        
+        
     }
 
 }
