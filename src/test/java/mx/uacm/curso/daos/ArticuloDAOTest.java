@@ -11,8 +11,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import mx.uacm.curso.entidades.Articulo;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -24,12 +26,16 @@ import org.junit.jupiter.api.TestMethodOrder;
  */
 //configuramos junit para ordenar usando annotations
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//ordenamos la ejecucion de los tests por orden alfabetico
+//@TestMethodOrder(MethodOrderer.Alphanumeric.class)
+//ordenamos de manera aleatoria
+//@TestMethodOrder(MethodOrderer.Random.class)
 public class ArticuloDAOTest {
-    
+
     private static EntityManager em;
-    
+
     private static ArticuloDAO articuloDAO;
-    
+
     //ArticuloDAOTest.inicializar();
     //junit al usar el annotation @BeforeAll necesita que
     //sea estatico el metodo
@@ -38,41 +44,52 @@ public class ArticuloDAOTest {
         System.out.println("inicializar");
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("blog-pruebas-memoria");
         em = emf.createEntityManager();
-        em.getTransaction().begin(); //iniciamos transaccion
         articuloDAO = new ArticuloDAOImpl(em);
     }
-    
+
+    @BeforeEach //este annotation no puede estar en metodos estaticos
+    public  void antesDeCadaTest() {
+        System.out.println("antes del test");
+        em.getTransaction().begin(); //iniciamos transaccion
+    }
+
+    @AfterEach
+    public  void despuesDeCadaTest() {
+        System.out.println("despues del test");
+        em.getTransaction().rollback();
+    }
+
     @AfterAll
     //ejecuta despues de todos los tests
-    public static void terminar(){
+    public static void terminar() {
         //rollback es para deshacer todos los cambios
         //dentro de la transaccion
         System.out.println("terminar");
-        em.getTransaction().rollback();
     }
-    
+
     @Test
     @Order(1)
-    public void buscarArticuloTest(){
-        
+    public void buscarArticuloTest() {
+
+        System.out.println("buscar por articulo");
         Articulo a = articuloDAO.buscarPorId(1);
         //checamos que la variable a no sea NULL
         Assertions.assertNotNull(a);
         //revisamos que el id del objeto sea el correcto
         //primer argumento = el valor esperado
         //segundo argumento = el valor real
-        Assertions.assertEquals(1,a.getId());
+        Assertions.assertEquals(1, a.getId());
     }
-    
+
     @Test
     @Order(2)
-    public void guardarArticuloTest(){
-        
+    public void aguardarArticuloTest() {
+        System.out.println("guardar articulo test");
         Articulo a = new Articulo();
         a.setContenido("contenido test");
         a.setTitulo("titulo test");
         a.setFechaCreacion(new Date());
-        
+
         Articulo a2 = articuloDAO.guardar(a);
         //verificamos que el articulo se guardo
         //revisamos que no sea null
@@ -80,14 +97,15 @@ public class ArticuloDAOTest {
         //revisamos que tenga un id
         Assertions.assertNotNull(a2.getId());
         //revisamos que el contenido se guardo bien
-        Assertions.assertEquals(a.getContenido(),a2.getContenido());
-        Assertions.assertEquals(a.getTitulo(),a2.getTitulo());
-        Assertions.assertEquals(a.getFechaCreacion(),a2.getFechaCreacion());
+        Assertions.assertEquals(a.getContenido(), a2.getContenido());
+        Assertions.assertEquals(a.getTitulo(), a2.getTitulo());
+        Assertions.assertEquals(a.getFechaCreacion(), a2.getFechaCreacion());
     }
-    
+
     @Test
     @Order(3)
-    public void removerArticuloTest(){
+    public void removerArticuloTest() {
+        System.out.println("remover articulo test");
         //verifique que funciona el remover con el renglon
         //que insertaron en la base        
         //el renglon 3 siempre se genera en la base de datos
@@ -96,7 +114,7 @@ public class ArticuloDAOTest {
         articuloDAO.remover(a);
         Articulo a2 = articuloDAO.buscarPorId(3);
         //revisamos que el articulo se haya borrado
-        Assertions.assertNull(a2);        
+        Assertions.assertNull(a2);
     }
 
 }
