@@ -12,9 +12,12 @@ import javax.persistence.Persistence;
 import mx.uacm.curso.entidades.Articulo;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
+//usamos un static import para importar todos
+//los metodos estaticos de la clase Assertions
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -74,11 +77,11 @@ public class ArticuloDAOTest {
         System.out.println("buscar por articulo");
         Articulo a = articuloDAO.buscarPorId(1);
         //checamos que la variable a no sea NULL
-        Assertions.assertNotNull(a);
+        assertNotNull(a);
         //revisamos que el id del objeto sea el correcto
         //primer argumento = el valor esperado
         //segundo argumento = el valor real
-        Assertions.assertEquals(1, a.getId());
+        assertEquals(1, a.getId());
     }
 
     @Test
@@ -93,16 +96,17 @@ public class ArticuloDAOTest {
         Articulo a2 = articuloDAO.guardar(a);
         //verificamos que el articulo se guardo
         //revisamos que no sea null
-        Assertions.assertNotNull(a2);
+        assertNotNull(a2);
         //revisamos que tenga un id
-        Assertions.assertNotNull(a2.getId());
+        assertNotNull(a2.getId());
         //revisamos que el contenido se guardo bien
-        Assertions.assertEquals(a.getContenido(), a2.getContenido());
-        Assertions.assertEquals(a.getTitulo(), a2.getTitulo());
-        Assertions.assertEquals(a.getFechaCreacion(), a2.getFechaCreacion());
+        assertEquals(a.getContenido(), a2.getContenido());
+        assertEquals(a.getTitulo(), a2.getTitulo());
+        assertEquals(a.getFechaCreacion(), a2.getFechaCreacion());
     }
 
     @Test
+    @Disabled("deshabilitado hasta que se corriga el bug 5-510")
     @Order(3)
     public void removerArticuloTest() {
         System.out.println("remover articulo test");
@@ -114,7 +118,8 @@ public class ArticuloDAOTest {
         articuloDAO.remover(a);
         Articulo a2 = articuloDAO.buscarPorId(3);
         //revisamos que el articulo se haya borrado
-        Assertions.assertNull(a2);
+        assertNull(a2);
+        
     }
 
 }
