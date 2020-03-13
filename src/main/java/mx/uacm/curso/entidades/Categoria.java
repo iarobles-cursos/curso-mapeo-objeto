@@ -32,17 +32,25 @@ public class Categoria {
     public Integer getId() {
         return id;
     }
-    
+
     //joinColumns se llena del nombre de la columna
     //de la tabla intermedia que esta relacionada
     //con la entidad dueña
     @ManyToMany
     @JoinTable(
             name = "categorias_articulos",
-            joinColumns = @JoinColumn(name="categoria_id"),
-            inverseJoinColumns = @JoinColumn(name="articulo_id")
+            joinColumns = @JoinColumn(name = "categoria_id"),
+            inverseJoinColumns = @JoinColumn(name = "articulo_id")
     )
     private List<Articulo> articulos;
+
+    public List<Articulo> getArticulos() {
+        return articulos;
+    }
+
+    public void setArticulos(List<Articulo> articulos) {
+        this.articulos = articulos;
+    }
 
     public void setId(Integer id) {
         this.id = id;
