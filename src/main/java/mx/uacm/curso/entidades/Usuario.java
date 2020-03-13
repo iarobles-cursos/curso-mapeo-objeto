@@ -5,12 +5,14 @@
  */
 package mx.uacm.curso.entidades;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -42,6 +44,17 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "datos_autor_id")
     private DatosUsuario datosUsuario;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Articulo> articulos;
+
+    public List<Articulo> getArticulos() {
+        return articulos;
+    }
+
+    public void setArticulos(List<Articulo> articulos) {
+        this.articulos = articulos;
+    }
 
     public DatosUsuario getDatosUsuario() {
         return datosUsuario;
