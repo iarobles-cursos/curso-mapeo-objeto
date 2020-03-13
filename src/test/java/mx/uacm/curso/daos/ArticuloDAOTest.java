@@ -82,6 +82,8 @@ public class ArticuloDAOTest {
         //primer argumento = el valor esperado
         //segundo argumento = el valor real
         assertEquals(1, a.getId());
+        
+     
     }
 
     @Test
@@ -106,7 +108,7 @@ public class ArticuloDAOTest {
     }
 
     @Test
-    @Disabled("deshabilitado hasta que se corriga el bug 5-510")
+    //@Disabled("deshabilitado hasta que se corriga el bug 5-510")
     @Order(3)
     public void removerArticuloTest() {
         System.out.println("remover articulo test");
