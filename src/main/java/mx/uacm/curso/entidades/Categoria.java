@@ -5,9 +5,13 @@
  */
 package mx.uacm.curso.entidades;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -28,6 +32,17 @@ public class Categoria {
     public Integer getId() {
         return id;
     }
+    
+    //joinColumns se llena del nombre de la columna
+    //de la tabla intermedia que esta relacionada
+    //con la entidad dueña
+    @ManyToMany
+    @JoinTable(
+            name = "categorias_articulos",
+            joinColumns = @JoinColumn(name="categoria_id"),
+            inverseJoinColumns = @JoinColumn(name="articulo_id")
+    )
+    private List<Articulo> articulos;
 
     public void setId(Integer id) {
         this.id = id;
