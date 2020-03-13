@@ -58,13 +58,17 @@ public class ComentarioDAOTest {
 
     @Test
     @Order(1)
-    public void buscarDatosArticuloTest() {
+    public void buscarComentarioTest() {
 
         System.out.println("buscar datos articulo por id");
         Comentario c = comentarioDAO.buscarPorId(1);
         assertNotNull(c);
         assertEquals(1, c.getId());
         
+        assertNotNull(c.getArticulo());
+        assertEquals(1,c.getArticulo().getId());
+        
+        System.out.println("articulo del comentario:" + c.getArticulo().getTitulo());
         
     }
 

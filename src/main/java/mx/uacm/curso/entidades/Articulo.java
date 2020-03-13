@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -38,9 +40,20 @@ public class Articulo {
 
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-    
+
     //EJERCICIO
     //MAPEAR Articulo con DatosArticulo
+    @OneToOne
+    @JoinColumn(name = "datos_articulo_id")
+    private DatosArticulo datosArticulo;
+
+    public DatosArticulo getDatosArticulo() {
+        return datosArticulo;
+    }
+
+    public void setDatosArticulo(DatosArticulo datosArticulo) {
+        this.datosArticulo = datosArticulo;
+    }
 
     public Integer getId() {
         return id;

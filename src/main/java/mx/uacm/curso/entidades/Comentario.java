@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity(name = "comentarios")
@@ -26,6 +28,20 @@ public class Comentario {
 
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
+
+    //muchos comentarios, se corresponden con 1 articulo
+    //por eso es muchos a uno 
+    @ManyToOne
+    @JoinColumn(name = "articulo_id")
+    private Articulo articulo;
+
+    public Articulo getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
+    }
 
     public void setId(Integer id) {
         this.id = id;

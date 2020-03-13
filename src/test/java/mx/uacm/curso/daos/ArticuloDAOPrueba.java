@@ -83,6 +83,8 @@ public class ArticuloDAOPrueba {
         //segundo argumento = el valor real
         assertEquals(1, a.getId());
         
+        //revisamos que el mapeo funciona
+        assertNotNull(a.getDatosArticulo());
      
     }
 
