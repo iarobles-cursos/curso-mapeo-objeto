@@ -68,6 +68,11 @@ public class UsuarioDAOTest {
         //primer argumento = el valor esperado
         //segundo argumento = el valor real
         assertEquals(1, u.getId());
+        
+        assertNotNull(u.getDatosUsuario());
+        
+        System.out.println("biografia:" + u.getDatosUsuario().getBiografia());
+        
 
     }
 

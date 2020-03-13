@@ -33,7 +33,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 //@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 //ordenamos de manera aleatoria
 //@TestMethodOrder(MethodOrderer.Random.class)
-public class ArticuloDAOTest {
+public class ArticuloDAOPrueba {
 
     private static EntityManager em;
 
@@ -82,9 +82,6 @@ public class ArticuloDAOTest {
         //primer argumento = el valor esperado
         //segundo argumento = el valor real
         assertEquals(1, a.getId());
-        
-        
-        //AGREGAR TEST PARA VERIFICAR QUE SE OBTIENE DatosArticulo
         
      
     }

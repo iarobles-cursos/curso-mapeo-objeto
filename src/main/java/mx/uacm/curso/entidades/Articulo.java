@@ -38,6 +38,9 @@ public class Articulo {
 
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
+    
+    //EJERCICIO
+    //MAPEAR Articulo con DatosArticulo
 
     public Integer getId() {
         return id;
