@@ -86,6 +86,9 @@ public class ArticuloDAOTest {
         
         //AGREGAR TEST PARA VERIFICAR QUE SE OBTIENE DatosArticulo
         
+        //revisamos que haya 2 comentarios
+        assertEquals(2,a.getComentarios().size());
+        
      
     }
 

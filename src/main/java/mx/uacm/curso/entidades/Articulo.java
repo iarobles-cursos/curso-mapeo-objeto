@@ -6,6 +6,7 @@
 package mx.uacm.curso.entidades;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -46,6 +48,21 @@ public class Articulo {
     @OneToOne
     @JoinColumn(name = "datos_articulo_id")
     private DatosArticulo datosArticulo;
+
+    //como articulo no es entidad dueña
+    //mappedBy se llena del nombre de la propiedad
+    //         que en la entidad dueña se usa para mapear
+    //         esta entidad
+    @OneToMany(mappedBy = "articulo")
+    private List<Comentario> comentarios;
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
 
     public DatosArticulo getDatosArticulo() {
         return datosArticulo;
