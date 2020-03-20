@@ -73,6 +73,9 @@ public class UsuarioDAOTest {
         
         System.out.println("biografia:" + u.getDatosUsuario().getBiografia());
         
+        //verificamos que el mapeo de usuario a departamentos funciona
+        assertNotNull(u.getDepartamentos());
+        assertEquals(3,u.getDepartamentos().size());
 
     }
 

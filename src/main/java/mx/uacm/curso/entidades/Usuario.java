@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -47,6 +48,19 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario")
     private List<Articulo> articulos;
+    
+    @ManyToMany(mappedBy="usuarios")
+    private List<Departamento> departamentos;
+
+    public List<Departamento> getDepartamentos() {
+        return departamentos;
+    }
+
+    public void setDepartamentos(List<Departamento> departamentos) {
+        this.departamentos = departamentos;
+    }
+    
+    
 
     public List<Articulo> getArticulos() {
         return articulos;
