@@ -8,3 +8,18 @@ https://docs.google.com/document/d/1s48O7It63_xBHmGY6We94Lkbgmgb94EE6gKVbIIvbyQ/
 
 ## Instrucciones para arrancar la base de datos portable
 Revisar el archivo COMANDOS.TXT dentro de la carpeta: base-portable-hsqldb
+
+### Resumenes de cada clase en línea.
+
+#### Viernes 20 de Marzo de 2020
+
+En esta sesión, se revisarán los siguientes temas:
+
+1. Ejercicios de mapeos N-N
+
+2. Cache de primer nivel en JPA
+
+3. Fetch Types
+
+4. Cascading
+
