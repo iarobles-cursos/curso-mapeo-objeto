@@ -70,6 +70,11 @@ public class DepartamentoDAOTest {
         //primer argumento = el valor esperado
         //segundo argumento = el valor real
         assertEquals(1, d.getId());
+        
+        //provamos que el departamento se haya mapeado correctamente
+        //con los usuarios
+        assertNotNull(d.getUsuarios());
+        assertEquals(1,d.getUsuarios().size());        
 
     }
 
