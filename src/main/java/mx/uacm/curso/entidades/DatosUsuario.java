@@ -30,6 +30,14 @@ public class DatosUsuario {
     @Column(name = "fecha_registro")
     private Date fechaRegistro;
 
+    @Override
+    public String toString() {
+        return "{id:" + this.id + ", biografia:" + this.biografia + "}";
+    }
+    
+    
+    
+
     public Integer getId() {
         return id;
     }

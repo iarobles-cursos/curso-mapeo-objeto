@@ -70,6 +70,8 @@ public class DatosUsuarioDAOTest {
         //segundo argumento = el valor real
         assertEquals(1, d.getId());
         
+        System.out.println("datos usuario:" + d);
+        
         
     }
 
