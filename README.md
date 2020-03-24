@@ -17,9 +17,14 @@ En esta sesión, se revisarán los siguientes temas:
 
 1. Ejercicios de mapeos N-N
 
+#### Martes 24 de  Marzo de 2020
+
+En esta sesión se revisaán los siguientes temas:
+
+1. El método toString() de Java
+
 2. Cache de primer nivel en JPA
 
 3. Fetch Types
 
-4. Cascading
 
