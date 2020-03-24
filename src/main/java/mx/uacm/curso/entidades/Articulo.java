@@ -65,6 +65,14 @@ public class Articulo {
     @ManyToMany(mappedBy = "articulos")
     private List<Categoria> categorias;
 
+    @Override
+    public String toString() {
+        return "{" + "id:" + this.id + ", titulo:"+ this.titulo + "}";
+    }
+    
+    
+    
+
     public List<Categoria> getCategorias() {
         return categorias;
     }

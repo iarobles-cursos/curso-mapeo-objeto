@@ -52,6 +52,14 @@ public class Usuario {
     @ManyToMany(mappedBy="usuarios")
     private List<Departamento> departamentos;
 
+    @Override
+    public String toString() {
+        return "{id:" + this.id + ", nombre:" + this.nombre + ", email:" + this.email + "}";
+    }
+    
+    
+    
+
     public List<Departamento> getDepartamentos() {
         return departamentos;
     }
