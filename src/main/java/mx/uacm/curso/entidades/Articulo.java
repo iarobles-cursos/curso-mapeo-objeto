@@ -56,7 +56,7 @@ public class Articulo {
     //mappedBy se llena del nombre de la propiedad
     //         que en la entidad dueña se usa para mapear
     //         esta entidad
-    @OneToMany(mappedBy = "articulo", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "articulo", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Comentario> comentarios;
 
     @ManyToOne
@@ -68,11 +68,8 @@ public class Articulo {
 
     @Override
     public String toString() {
-        return "{" + "id:" + this.id + ", titulo:"+ this.titulo + "}";
+        return "{" + "id:" + this.id + ", titulo:" + this.titulo + "}";
     }
-    
-    
-    
 
     public List<Categoria> getCategorias() {
         return categorias;
