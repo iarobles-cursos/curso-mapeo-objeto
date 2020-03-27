@@ -63,7 +63,7 @@ public class Articulo {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @ManyToMany(mappedBy = "articulos")
+    @ManyToMany(mappedBy = "articulos", cascade=CascadeType.MERGE)
     private List<Categoria> categorias;
 
     @Override
