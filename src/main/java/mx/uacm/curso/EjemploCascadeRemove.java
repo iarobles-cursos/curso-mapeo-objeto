@@ -30,7 +30,7 @@ public class EjemploCascadeRemove {
         ArticuloDAO articuloDAO = new ArticuloDAOImpl(em);
         Articulo a = articuloDAO.buscarPorId(3);
         
-        em.remove(a);
+        em.detach(a);
                 
         em.getTransaction().commit();
 

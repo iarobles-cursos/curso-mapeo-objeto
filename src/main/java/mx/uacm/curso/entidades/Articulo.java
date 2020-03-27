@@ -56,7 +56,7 @@ public class Articulo {
     //mappedBy se llena del nombre de la propiedad
     //         que en la entidad dueña se usa para mapear
     //         esta entidad
-    @OneToMany(mappedBy = "articulo", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "articulo", cascade = CascadeType.ALL)
     private List<Comentario> comentarios;
 
     @ManyToOne
