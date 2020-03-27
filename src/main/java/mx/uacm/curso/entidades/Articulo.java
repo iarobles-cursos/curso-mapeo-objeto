@@ -7,6 +7,7 @@ package mx.uacm.curso.entidades;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -55,7 +56,7 @@ public class Articulo {
     //mappedBy se llena del nombre de la propiedad
     //         que en la entidad dueña se usa para mapear
     //         esta entidad
-    @OneToMany(mappedBy = "articulo")
+    @OneToMany(mappedBy = "articulo", cascade = CascadeType.MERGE)
     private List<Comentario> comentarios;
 
     @ManyToOne
