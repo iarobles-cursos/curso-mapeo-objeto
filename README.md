@@ -19,12 +19,19 @@ En esta sesión, se revisarán los siguientes temas:
 
 #### Martes 24 de  Marzo de 2020
 
-En esta sesión se revisaán los siguientes temas:
+En esta sesión se revisarán los siguientes temas:
 
 1. El método toString() de Java
 
 2. Cache de primer nivel en JPA
 
+
+#### Viernes 27 de  Marzo de 2020
+
+En esta sesión se revisarán los siguientes temas:
+
+1. Operaciones en cascada
+
+2. Ordenamiento
+
 3. Fetch Types
-
-
