@@ -6,6 +6,7 @@
 package mx.uacm.curso.entidades;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,7 +47,7 @@ public class Usuario {
     @JoinColumn(name = "datos_autor_id")
     private DatosUsuario datosUsuario;
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", cascade={CascadeType.MERGE, CascadeType.PERSIST})
     private List<Articulo> articulos;
     
     @ManyToMany(mappedBy="usuarios")

@@ -9,6 +9,7 @@ import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import mx.uacm.curso.entidades.Articulo;
 import mx.uacm.curso.entidades.DatosUsuario;
 import mx.uacm.curso.entidades.Usuario;
 import org.junit.jupiter.api.AfterAll;
@@ -77,6 +78,22 @@ public class UsuarioDAOTest {
         assertNotNull(u.getDepartamentos());
         assertEquals(3,u.getDepartamentos().size());
 
+    }
+    
+    @Test
+    public void agregarArticuloTest(){
+        
+        Usuario u = usuarioDAO.buscarPorId(1);
+        Articulo a = new Articulo();
+        a.setTitulo("articulo de prueba");
+        a.setUsuario(u);
+        
+        u.getArticulos().add(a);
+        
+        usuarioDAO.guardar(u);
+        
+        Usuario u2 = usuarioDAO.buscarPorId(1);
+        assertEquals(u.getArticulos().size(), u2.getArticulos().size());
     }
 
 }
