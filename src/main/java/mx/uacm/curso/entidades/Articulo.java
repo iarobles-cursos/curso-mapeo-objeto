@@ -48,7 +48,7 @@ public class Articulo {
 
     //EJERCICIO
     //MAPEAR Articulo con DatosArticulo
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "datos_articulo_id")
     private DatosArticulo datosArticulo;
 
@@ -56,14 +56,15 @@ public class Articulo {
     //mappedBy se llena del nombre de la propiedad
     //         que en la entidad dueña se usa para mapear
     //         esta entidad
-    @OneToMany(mappedBy = "articulo", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "articulo", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<Comentario> comentarios;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-
-    @ManyToMany(mappedBy = "articulos", cascade=CascadeType.MERGE)
+    
+    //tener mucho cuidado si se pone la operacion en cascada REMOVE
+    @ManyToMany(mappedBy = "articulos", cascade = {CascadeType.MERGE})
     private List<Categoria> categorias;
 
     @Override
