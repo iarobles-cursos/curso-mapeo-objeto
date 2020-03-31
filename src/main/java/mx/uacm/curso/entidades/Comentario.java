@@ -35,6 +35,13 @@ public class Comentario {
     @JoinColumn(name = "articulo_id")
     private Articulo articulo;
 
+    @Override
+    public String toString() {
+        return "{" + "id:" + this.id + ", comentario:" + this.comentario + ", fechaCreacion:" + this.fechaCreacion +"}";
+    }
+    
+    
+
     public Articulo getArticulo() {
         return articulo;
     }
