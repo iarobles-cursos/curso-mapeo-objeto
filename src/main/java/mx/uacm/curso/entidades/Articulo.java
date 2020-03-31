@@ -11,6 +11,7 @@ import javax.persistence.CascadeType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -66,7 +67,8 @@ public class Articulo {
     private Usuario usuario;
     
     //tener mucho cuidado si se pone la operacion en cascada REMOVE
-    @ManyToMany(mappedBy = "articulos", cascade = {CascadeType.MERGE})
+    //sol ejercicio: habilitamos estrategia de carga eager en las categorias del articulo
+    @ManyToMany(mappedBy = "articulos", cascade = {CascadeType.MERGE},fetch = FetchType.EAGER)
     private List<Categoria> categorias;
 
     @Override
