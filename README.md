@@ -32,6 +32,14 @@ En esta sesión se revisarán los siguientes temas:
 
 1. Operaciones en cascada
 
-2. Ordenamiento
 
-3. Fetch Types
+#### Martes 31 de Marzo de 2020
+
+
+En esta sesión se revisarán los siguientes temas:
+
+1. Ordenamiento
+
+2. Fetch types
+
+3. Objetos @Embeddable (llaves primarias compuestas)
