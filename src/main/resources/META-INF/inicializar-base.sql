@@ -161,8 +161,8 @@ INSERT INTO datos_articulos(id,observaciones) VALUES(DEFAULT,'Observaciones adic
 /************** DATOS PARA EJERCICIO ONE-TO-MANY ***************/
 
 INSERT INTO articulos VALUES(DEFAULT,1,1,'titulo articulo 1','contenido articulo 1','2013-10-24');
-INSERT INTO articulos VALUES(DEFAULT,1,2,'titulo articulo 2','contenido articulo 2','2013-10-24');
-INSERT INTO articulos VALUES(DEFAULT,1,3,'titulo articulo 3','contenido articulo 3','2013-10-24');
+INSERT INTO articulos VALUES(DEFAULT,1,2,'titulo articulo 2','contenido articulo 2','2012-10-24');
+INSERT INTO articulos VALUES(DEFAULT,1,3,'titulo articulo 3','contenido articulo 3','2020-11-24');
 
 INSERT INTO comentarios VALUES(DEFAULT, 1, 'mi comentario 1','anonimo','2013-9-24');
 INSERT INTO comentarios VALUES(DEFAULT, 1, 'mi comentario 2','anonimo','2013-11-24');

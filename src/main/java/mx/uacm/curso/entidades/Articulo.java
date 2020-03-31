@@ -69,7 +69,7 @@ public class Articulo {
 
     @Override
     public String toString() {
-        return "{" + "id:" + this.id + ", titulo:" + this.titulo + "}";
+        return "{" + "id:" + this.id + ", titulo:" + this.titulo + ", fecha:"+ this.fechaCreacion + "}";
     }
 
     public List<Categoria> getCategorias() {
