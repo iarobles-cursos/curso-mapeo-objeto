@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,8 +48,9 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "datos_autor_id")
     private DatosUsuario datosUsuario;
-
-    @OneToMany(mappedBy = "usuario", cascade={CascadeType.MERGE, CascadeType.PERSIST})
+    
+    //se debe de tener mucho cuidado con la propiedad fetch y la estregia eager loading.
+    @OneToMany(mappedBy = "usuario", cascade={CascadeType.MERGE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
     @OrderBy("fechaCreacion DESC")
     private List<Articulo> articulos;
     
