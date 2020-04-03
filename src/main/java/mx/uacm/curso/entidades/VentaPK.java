@@ -6,6 +6,7 @@
 package mx.uacm.curso.entidades;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -21,6 +22,19 @@ public class VentaPK implements Serializable{
 
     @Column(name = "codigo_barras")
     private String codigoBarras;
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof VentaPK)){
+            return false;
+        }
+        VentaPK id1=this;
+        VentaPK id2=(VentaPK)obj;
+        
+        return Objects.equals(id1.getOrden(), id2.getOrden()) && Objects.equals(id1.getCodigoBarras(),id2.getCodigoBarras());        
+    }
+    
+    
 
     public Integer getOrden() {
         return orden;

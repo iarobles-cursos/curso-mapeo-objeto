@@ -57,21 +57,59 @@ public class VentaDAOTest {
     //ejecuta despues de todos los tests
     public static void terminar() {
         System.out.println("terminar");
+
     }
 
     @Test
     @Order(1)
+    public void consistenciaLLavePrimariaTest() {
+        VentaPK id1 = new VentaPK();
+        id1.setOrden(1);
+        id1.setCodigoBarras("001 2348");
+
+        VentaPK id2 = new VentaPK();
+        id2.setOrden(1);
+        id2.setCodigoBarras("001 2348");
+
+        VentaPK id3 = new VentaPK();
+        id3.setOrden(1);
+        id3.setCodigoBarras("001 2348");
+
+        //revisamos que se cumpla la condicion de que a.equals(null)==false
+        assertFalse(id1.equals(null));
+
+        //revisamos que equals es una relacion de equivalencia
+        //propiedad reflexiva
+        //revisamos que id1.equals(id1) == true
+        assertTrue(id1.equals(id1));
+
+        //propiedad simetrica
+        //revisamos id1.equals(id2) es true, entonces id2.equals(id1) es true
+        assertTrue(id1.equals(id2));
+        assertTrue(id2.equals(id1));
+
+        //propiedad transitiva
+        //si id1.equals(id2) es true y si id2.equals(id3) es true entonces
+        // id1.equals(id3) tambien es true
+        assertTrue(id1.equals(id2));
+        assertTrue(id2.equals(id3));
+        //por transitividad, se debe de cumplir:
+        assertTrue(id1.equals(id3));
+
+    }
+
+    @Test
+    @Order(2)
     public void buscarVentaTest() {
-        
+
         System.out.println("buscando venta");
         VentaPK id = new VentaPK();
         id.setOrden(1);
         id.setCodigoBarras("001 2348");
         Venta v = ventaDAO.buscarPorId(id);
         assertNotNull(v);
-        assertEquals("Papas",v.getNombreProducto());
+        assertEquals("Papas", v.getNombreProducto());
 
     }
-    
 
 }
