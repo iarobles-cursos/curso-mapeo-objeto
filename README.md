@@ -35,11 +35,18 @@ En esta sesión se revisarán los siguientes temas:
 
 #### Martes 31 de Marzo de 2020
 
-
 En esta sesión se revisarán los siguientes temas:
 
 1. Ordenamiento
 
 2. Fetch types
 
-3. Objetos @Embeddable (llaves primarias compuestas)
+#### Viernes 3 de Abril de 2020
+
+En esta sesión se revisarán los siguientes temas:
+
+1. Objetos @Embeddable (llaves primarias compuestas)
+
+2. Mapeo de Colecciones de objetos con @ElementCollection
+
+3. Introducción a JPQL: Consultas SELECT
