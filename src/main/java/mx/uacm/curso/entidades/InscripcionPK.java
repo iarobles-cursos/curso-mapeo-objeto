@@ -38,6 +38,16 @@ public class InscripcionPK implements Serializable {
         return Objects.equals(id1.getMatricula(), id2.getMatricula()) && Objects.equals(id1.getCurso(), id2.getCurso());
     }
 
+    @Override
+    public int hashCode() {
+        //desde java 1.7 esta la clase de utileria Objects
+        return Objects.hash(this.getMatricula(),this.getCurso());
+    }
+    
+    
+    
+
+
     public String getMatricula() {
         return matricula;
     }

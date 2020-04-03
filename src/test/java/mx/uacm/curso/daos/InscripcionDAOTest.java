@@ -98,11 +98,13 @@ public class InscripcionDAOTest {
         //por transitividad, se debe de cumplir:
         assertTrue(id1.equals(id3));
         
+        //verificamos que id1.hashCode() == id2.hashCode()
+        assertEquals(id1.hashCode(),id2.hashCode());
+        
         //por definicion, el método equals en java debe dar true si los
         //objetos representan la misma información.
         //NO ES LO MISMO id1==id2
-        System.out.println("id1.equals(id2):" + id1.equals(id2));
-        
+        System.out.println("id1.equals(id2):" + id1.equals(id2));        
     }
     
 
