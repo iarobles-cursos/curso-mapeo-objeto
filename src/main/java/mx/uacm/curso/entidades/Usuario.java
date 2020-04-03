@@ -7,7 +7,9 @@ package mx.uacm.curso.entidades;
 
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -48,22 +50,35 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "datos_autor_id")
     private DatosUsuario datosUsuario;
-    
+
     //se debe de tener mucho cuidado con la propiedad fetch y la estregia eager loading.
-    @OneToMany(mappedBy = "usuario", cascade={CascadeType.MERGE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @OrderBy("fechaCreacion DESC")
     private List<Articulo> articulos;
-    
-    @ManyToMany(mappedBy="usuarios")
+
+    @ManyToMany(mappedBy = "usuarios")
     private List<Departamento> departamentos;
+
+    @ElementCollection
+    @CollectionTable(
+            name = "telefonos",
+            joinColumns = @JoinColumn(name = "usuario_id")
+    )
+    @Column(name = "telefono")
+    private List<String> telefonos;
+
+    public List<String> getTelefonos() {
+        return telefonos;
+    }
+
+    public void setTelefonos(List<String> telefonos) {
+        this.telefonos = telefonos;
+    }
 
     @Override
     public String toString() {
         return "{id:" + this.id + ", nombre:" + this.nombre + ", email:" + this.email + "}";
     }
-    
-    
-    
 
     public List<Departamento> getDepartamentos() {
         return departamentos;
@@ -72,8 +87,6 @@ public class Usuario {
     public void setDepartamentos(List<Departamento> departamentos) {
         this.departamentos = departamentos;
     }
-    
-    
 
     public List<Articulo> getArticulos() {
         return articulos;

@@ -77,6 +77,11 @@ public class UsuarioDAOTest {
         //verificamos que el mapeo de usuario a departamentos funciona
         assertNotNull(u.getDepartamentos());
         assertEquals(3,u.getDepartamentos().size());
+        
+        //verificamos que el usuario se haya mapeado correctamente con telefonos
+        assertEquals(2,u.getTelefonos().size());
+        
+        System.out.println("telefonos del usuario:" + u.getTelefonos());
 
     }
     
