@@ -79,9 +79,12 @@ public class UsuarioDAOTest {
         assertEquals(3,u.getDepartamentos().size());
         
         //verificamos que el usuario se haya mapeado correctamente con telefonos
-        assertEquals(2,u.getTelefonos().size());
-        
+        assertEquals(2,u.getTelefonos().size());        
         System.out.println("telefonos del usuario:" + u.getTelefonos());
+        
+        //verficamos que el usuario se haya mapeado correctamente con emails_adicionales
+        assertEquals(2,u.getEmailsAdicionales().size());
+        System.out.println("emails adicionales del usuario:" + u.getEmailsAdicionales());
 
     }
     

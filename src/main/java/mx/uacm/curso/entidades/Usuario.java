@@ -67,6 +67,22 @@ public class Usuario {
     @Column(name = "telefono")
     private List<String> telefonos;
 
+    @ElementCollection
+    @CollectionTable(
+            name = "emails_adicionales",
+            joinColumns = @JoinColumn(name = "usuario_id")
+    )
+    @Column(name = "email")
+    private List<String> emailsAdicionales;
+
+    public List<String> getEmailsAdicionales() {
+        return emailsAdicionales;
+    }
+
+    public void setEmailsAdicionales(List<String> emailsAdicionales) {
+        this.emailsAdicionales = emailsAdicionales;
+    }
+
     public List<String> getTelefonos() {
         return telefonos;
     }
