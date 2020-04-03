@@ -95,6 +95,8 @@ public class VentaDAOTest {
         assertTrue(id2.equals(id3));
         //por transitividad, se debe de cumplir:
         assertTrue(id1.equals(id3));
+                
+        assertEquals(id1.hashCode(),id2.hashCode());
 
     }
 

@@ -15,7 +15,7 @@ import javax.persistence.Embeddable;
  * @author iarobles
  */
 @Embeddable
-public class VentaPK implements Serializable{
+public class VentaPK implements Serializable {
 
     @Column(name = "orden")
     private Integer orden;
@@ -25,16 +25,19 @@ public class VentaPK implements Serializable{
 
     @Override
     public boolean equals(Object obj) {
-        if(!(obj instanceof VentaPK)){
+        if (!(obj instanceof VentaPK)) {
             return false;
         }
-        VentaPK id1=this;
-        VentaPK id2=(VentaPK)obj;
-        
-        return Objects.equals(id1.getOrden(), id2.getOrden()) && Objects.equals(id1.getCodigoBarras(),id2.getCodigoBarras());        
+        VentaPK id1 = this;
+        VentaPK id2 = (VentaPK) obj;
+
+        return Objects.equals(id1.getOrden(), id2.getOrden()) && Objects.equals(id1.getCodigoBarras(), id2.getCodigoBarras());
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getOrden(),this.getCodigoBarras());
+    }
 
     public Integer getOrden() {
         return orden;
