@@ -6,6 +6,7 @@
 package mx.uacm.curso.daos;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import mx.uacm.curso.entidades.Articulo;
 
 /**
@@ -17,5 +18,11 @@ public class ArticuloDAOImpl extends GenericDAOImpl<Articulo, Integer> implement
     public ArticuloDAOImpl(EntityManager em) {
         //invocamos al constructor del padre
         super(em, Articulo.class);
+    }
+
+    @Override
+    public Long totalArticulos() {
+        TypedQuery<Long> consulta = em.createQuery("SELECT COUNT(a) FROM Articulo a",Long.class);
+        return consulta.getSingleResult();
     }
 }

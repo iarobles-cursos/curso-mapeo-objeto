@@ -13,4 +13,5 @@ import mx.uacm.curso.entidades.Articulo;
  */
 public interface ArticuloDAO extends GenericDAO<Articulo,Integer> {
     
+    Long totalArticulos();
 }

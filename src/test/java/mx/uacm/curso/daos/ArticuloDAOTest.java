@@ -129,5 +129,12 @@ public class ArticuloDAOTest {
         assertNull(a2);
         
     }
+    
+    @Test
+    @Order(4)
+    public void totalArticulosTest(){
+        Long totalArticulos = articuloDAO.totalArticulos();
+        assertEquals(3,totalArticulos);
+    }
 
 }
