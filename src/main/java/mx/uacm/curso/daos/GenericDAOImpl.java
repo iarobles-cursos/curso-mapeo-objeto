@@ -14,7 +14,7 @@ import mx.uacm.curso.entidades.Articulo;
  */
 public abstract class GenericDAOImpl<T, PK> implements GenericDAO<T,PK> {
 
-    private EntityManager em;
+    protected EntityManager em;
     
     private Class<T> clase;
     

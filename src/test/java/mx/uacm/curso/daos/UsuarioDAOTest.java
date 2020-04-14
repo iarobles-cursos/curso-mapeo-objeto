@@ -6,6 +6,7 @@
 package mx.uacm.curso.daos;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -102,6 +103,12 @@ public class UsuarioDAOTest {
         
         Usuario u2 = usuarioDAO.buscarPorId(1);
         assertEquals(u.getArticulos().size(), u2.getArticulos().size());
+    }
+    
+    @Test
+    public void obtenerTodosTest(){
+        List<Usuario> usuarios = usuarioDAO.obtenerTodos();
+        assertEquals(2,usuarios.size());
     }
 
 }

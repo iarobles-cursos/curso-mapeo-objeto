@@ -5,6 +5,7 @@
  */
 package mx.uacm.curso.daos;
 
+import java.util.List;
 import mx.uacm.curso.entidades.Usuario;
 
 /**
@@ -13,5 +14,7 @@ import mx.uacm.curso.entidades.Usuario;
  */
 public interface UsuarioDAO extends GenericDAO<Usuario,Integer>{
       //LOS METODOS DE ESTA INTEFAZ LOS HEREDA DE GENERIC DAO
+    
+    public List<Usuario> obtenerTodos();
         
 }
