@@ -49,4 +49,8 @@ En esta sesión se revisarán los siguientes temas:
 
 2. Mapeo de Colecciones de objetos con @ElementCollection
 
-3. Introducción a JPQL: Consultas SELECT
+#### Martes 14 de Abril de 2020
+
+En esta sesión se revisarán los siguientes temas:
+
+1. Introducción a JPQL: Consultas SELECT
