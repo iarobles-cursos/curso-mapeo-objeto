@@ -5,6 +5,8 @@
  */
 package mx.uacm.curso.daos;
 
+import java.util.Date;
+import java.util.List;
 import mx.uacm.curso.entidades.Articulo;
 
 /**
@@ -14,4 +16,7 @@ import mx.uacm.curso.entidades.Articulo;
 public interface ArticuloDAO extends GenericDAO<Articulo,Integer> {
     
     Long totalArticulos();
+    
+    List<Articulo> obtenArticulosPorFechaMinima(Date fechaMinima);
+      
 }

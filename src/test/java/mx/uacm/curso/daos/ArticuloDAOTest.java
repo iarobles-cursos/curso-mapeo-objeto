@@ -5,7 +5,12 @@
  */
 package mx.uacm.curso.daos;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -135,6 +140,32 @@ public class ArticuloDAOTest {
     public void totalArticulosTest(){
         Long totalArticulos = articuloDAO.totalArticulos();
         assertEquals(3,totalArticulos);
+    }
+    
+    @Test
+    @Order(5)
+    public void obtenArticulosPorFechaMinimaTest(){
+        //26 de Octubre de 1985
+        // en GregorianCalendar, el mes esta basado en indice cero
+        GregorianCalendar cal = new GregorianCalendar(1985,9,26);
+        Date fechaMinima = cal.getTime();
+        
+        //desde java 1.8 como alternativa a Date, existe el objeto LocalDate
+        LocalDate fecha = LocalDate.of(1985,10,26);
+        fechaMinima = Date.from(fecha.atStartOfDay(ZoneId.systemDefault()).toInstant());               
+        
+        List<Articulo> articulos = articuloDAO.obtenArticulosPorFechaMinima(fechaMinima);
+        System.out.println("articulos:" + articulos);
+        assertEquals(3,articulos.size());
+        
+        //2013-10-24
+        cal = new GregorianCalendar(2013,9,24);
+        fechaMinima = cal.getTime();
+        articulos = articuloDAO.obtenArticulosPorFechaMinima(fechaMinima);
+        System.out.println("articulos:" + articulos);
+        assertEquals(2,articulos.size());
+        
+        
     }
 
 }
