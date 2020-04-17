@@ -27,6 +27,13 @@ public class Venta {
     @Column(name = "cantidad")
     private Integer cantidad;
 
+    @Override
+    public String toString() {
+        return "{id:" + this.id + ", nombre producto:" + this.nombreProducto +", cantidad:" + this.cantidad + "}";
+    }
+    
+    
+
     public VentaPK getId() {
         return id;
     }
