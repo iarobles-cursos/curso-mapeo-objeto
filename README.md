@@ -54,3 +54,13 @@ En esta sesión se revisarán los siguientes temas:
 En esta sesión se revisarán los siguientes temas:
 
 1. Introducción a JPQL: Consultas SELECT
+
+#### Viernes 17 de Abril de 2020
+
+En esta sesión se revisarán los siguientes temas:
+
+1. Operadores de comparación, operadores lógicos y consultas parametrizables.
+
+2. Expresiones de selección.
+
+3. Proyecciones de JPA.
