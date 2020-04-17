@@ -16,5 +16,8 @@ public interface UsuarioDAO extends GenericDAO<Usuario,Integer>{
       //LOS METODOS DE ESTA INTEFAZ LOS HEREDA DE GENERIC DAO
     
     public List<Usuario> obtenerTodos();
+    
+    public Usuario obtenUsuarioPorEmailYPassword(String email, String password);
+
         
 }

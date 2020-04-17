@@ -110,5 +110,13 @@ public class UsuarioDAOTest {
         List<Usuario> usuarios = usuarioDAO.obtenerTodos();
         assertEquals(2,usuarios.size());
     }
+    
+    @Test
+    public void obtenUsuarioPorEmailYPassword(){
+        //probamos con juan@email.com','1234'
+        Usuario u = usuarioDAO.obtenUsuarioPorEmailYPassword("juan@email.com", "1234");
+        assertNotNull(u);
+        assertEquals(1,u.getId());
+    }
 
 }

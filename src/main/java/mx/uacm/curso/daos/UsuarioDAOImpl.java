@@ -26,5 +26,13 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario,Integer> implements U
         TypedQuery<Usuario> consulta = em.createQuery("SELECT u FROM Usuario u",Usuario.class);
         return consulta.getResultList();
     }
+
+    @Override
+    public Usuario obtenUsuarioPorEmailYPassword(String email, String password) {
+        TypedQuery<Usuario> consulta = em.createQuery("SELECT u FROM Usuario u WHERE u.email=:email AND u.password=:password",Usuario.class);
+        consulta.setParameter("email",email);
+        consulta.setParameter("password",password);
+        return consulta.getSingleResult();
+    }
     
 }
