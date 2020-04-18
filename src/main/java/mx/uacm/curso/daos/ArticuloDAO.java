@@ -13,10 +13,14 @@ import mx.uacm.curso.entidades.Articulo;
  *
  * @author Alumno
  */
-public interface ArticuloDAO extends GenericDAO<Articulo,Integer> {
-    
+public interface ArticuloDAO extends GenericDAO<Articulo, Integer> {
+
     Long totalArticulos();
-    
+
     List<Articulo> obtenArticulosPorFechaMinima(Date fechaMinima);
-      
+
+    Long totalArticulosSinComentarios();
+
+    Long totalArticulosConComentarios();
+
 }

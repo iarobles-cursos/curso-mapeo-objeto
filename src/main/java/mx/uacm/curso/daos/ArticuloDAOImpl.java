@@ -46,4 +46,18 @@ public class ArticuloDAOImpl extends GenericDAOImpl<Articulo, Integer> implement
         
         return articulos;        
     }
+
+    @Override
+    public Long totalArticulosSinComentarios() {
+        
+        TypedQuery<Long> consulta = em.createQuery("SELECT COUNT(a) FROM Articulo a WHERE a.comentarios IS EMPTY",Long.class);
+        return consulta.getSingleResult();        
+    }
+
+    @Override
+    public Long totalArticulosConComentarios() {        
+        
+        TypedQuery<Long> consulta = em.createQuery("SELECT COUNT(a) FROM Articulo a WHERE a.comentarios IS NOT EMPTY",Long.class);
+        return consulta.getSingleResult();        
+    }
 }

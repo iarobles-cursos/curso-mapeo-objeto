@@ -167,5 +167,23 @@ public class ArticuloDAOTest {
         
         
     }
+    
+    @Test
+    public void totalArticulosSinComentariosTest(){
+        Long total = articuloDAO.totalArticulosSinComentarios();
+        
+        //hay 1 solo articulo en los datos de prueba que no tiene comentarios
+        assertEquals(1,total);
+    }
+    
+    
+    @Test
+    public void totalArticulosConComentariosTest(){
+        Long total = articuloDAO.totalArticulosConComentarios();
+        
+        //hay 2 solo articulo en los datos de prueba que no tiene comentarios
+        assertEquals(2,total);
+    }
+    
 
 }
