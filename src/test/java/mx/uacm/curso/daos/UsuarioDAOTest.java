@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import mx.uacm.curso.dtos.UsuarioDTO;
 import mx.uacm.curso.entidades.Articulo;
 import mx.uacm.curso.entidades.DatosUsuario;
 import mx.uacm.curso.entidades.Usuario;
@@ -117,6 +118,14 @@ public class UsuarioDAOTest {
         Usuario u = usuarioDAO.obtenUsuarioPorEmailYPassword("juan@email.com", "1234");
         assertNotNull(u);
         assertEquals(1,u.getId());
+    }
+    
+    @Test
+    public void obtenNombreYEmailTest(){
+        UsuarioDTO u = usuarioDAO.obtenNombreYEmail(1);
+        
+        assertNotNull(u);
+        assertEquals("Juan Perez",u.getNombre());
     }
 
 }
