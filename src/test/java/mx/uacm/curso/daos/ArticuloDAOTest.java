@@ -185,5 +185,10 @@ public class ArticuloDAOTest {
         assertEquals(2,total);
     }
     
+    @Test
+    public void totalComentariosPorArticuloTest(){
+        Long total = articuloDAO.totalComentariosPorArticulo(1);
+        assertEquals(2,total);
+    }
 
 }

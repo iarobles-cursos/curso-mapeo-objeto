@@ -60,4 +60,11 @@ public class ArticuloDAOImpl extends GenericDAOImpl<Articulo, Integer> implement
         TypedQuery<Long> consulta = em.createQuery("SELECT COUNT(a) FROM Articulo a WHERE a.comentarios IS NOT EMPTY",Long.class);
         return consulta.getSingleResult();        
     }
+
+    @Override
+    public Long totalComentariosPorArticulo(Integer articuloId) {
+        TypedQuery<Long> consulta = em.createQuery("SELECT COUNT(c) FROM Articulo a INNER JOIN a.comentarios c WHERE a.id=:id", Long.class);
+        consulta.setParameter("id", articuloId);
+        return consulta.getSingleResult();
+    }
 }

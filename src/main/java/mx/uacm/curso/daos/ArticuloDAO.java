@@ -22,5 +22,7 @@ public interface ArticuloDAO extends GenericDAO<Articulo, Integer> {
     Long totalArticulosSinComentarios();
 
     Long totalArticulosConComentarios();
+    
+    Long totalComentariosPorArticulo(Integer articuloId);
 
 }
