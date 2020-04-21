@@ -64,3 +64,9 @@ En esta sesión se revisarán los siguientes temas:
 2. Expresiones de selección.
 
 3. Proyecciones de JPA.
+
+#### Lunes 21 de Abril de 2020
+
+1. Proyecciones de JPA.
+
+2. INNER JOIN de JPA.
