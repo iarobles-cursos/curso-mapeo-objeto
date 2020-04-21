@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
 import mx.uacm.curso.dtos.ArticuloDTO;
 import mx.uacm.curso.entidades.Articulo;
@@ -48,6 +49,20 @@ public class EjemploProyeccionesJPQL {
         List<ArticuloDTO> resultados = consulta4.getResultList();
         for (ArticuloDTO a : resultados) {
             System.out.println("id:" + a.getId() + ", titulo:" + a.getTitulo());
+        }
+
+        //ejemplo de proyecciones usando tuple (un solo resultado)
+        TypedQuery<Tuple> consulta5 = em.createQuery("SELECT a.id AS id,a.titulo AS titulo FROM Articulo a WHERE a.id=1", Tuple.class);
+        Tuple tupla = consulta5.getSingleResult();
+        System.out.println("id:" + tupla.get("id"));
+        System.out.println("titulo:" + tupla.get("titulo"));
+        
+        
+        //ejemplo de proyecciones usando tuple (un solo resultado)
+        TypedQuery<Tuple> consulta6 = em.createQuery("SELECT a.id AS id,a.titulo AS titulo FROM Articulo a", Tuple.class);
+        List<Tuple> tuplas = consulta6.getResultList();
+        for(Tuple laTupla:tuplas){
+        System.out.println("id:" + laTupla.get("id") + ", titulo:" + laTupla.get("titulo"));
         }
     }
 
