@@ -5,11 +5,14 @@
  */
 package mx.uacm.curso;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import mx.uacm.curso.daos.ArticuloDAO;
 import mx.uacm.curso.daos.ArticuloDAOImpl;
+import mx.uacm.curso.entidades.Articulo;
 
 /**
  *
@@ -20,6 +23,22 @@ public class EjemploCache {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("blog-pruebas-memoria");
         EntityManager em = emf.createEntityManager();
+
+//        TypedQuery<Articulo> consulta = em.createQuery("SELECT a FROM Articulo a JOIN FETCH a.comentarios c JOIN FETCH a.categorias ca",Articulo.class);
+//        List<Articulo> articulos = consulta.getResultList();
+//        for(Articulo a:articulos){
+//            System.out.println("comentarios:" + a.getComentarios());
+//        }
+//        
+//        
+        Long suma = em.createQuery("SELECT SUM(v.cantidad) FROM Venta v WHERE v.id.orden=1", Long.class).getSingleResult();
+        System.out.println("suma:" + suma);
+
+        System.out.println(em.createQuery("SELECT v.id.orden FROM Venta v GROUP BY v.id.orden HAVING SUM(v.cantidad)>:suma",Integer.class).setParameter("suma", suma).getResultList());
+
+        if (2 > 1) {
+            return;
+        }
 
         ArticuloDAO articuloDAO = new ArticuloDAOImpl(em);
         System.out.println("ANTES DE BUSCAR ARTICULO");

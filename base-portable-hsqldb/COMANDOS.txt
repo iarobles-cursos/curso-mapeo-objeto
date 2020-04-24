@@ -1,6 +1,6 @@
 
 =================================================================================================
-                              ARRANCAR EL SERVIDAOR HSQLDB   
+                              ARRANCAR EL SERVIDOR HSQLDB   
 =================================================================================================
 # EJECUTAR EL SIGUIENTE COMANDO DENTRO DE LA CARPETA "base-portable-hsqdlb" (esta carpeta)
 

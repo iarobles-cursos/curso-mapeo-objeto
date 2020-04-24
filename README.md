@@ -65,8 +65,19 @@ En esta sesión se revisarán los siguientes temas:
 
 3. Proyecciones de JPA.
 
-#### Lunes 21 de Abril de 2020
+#### Martes 21 de Abril de 2020
 
 1. Proyecciones de JPA.
 
 2. INNER JOIN de JPA.
+
+
+#### Viernes 24 de Abril de 2020
+
+1. LEFT/RIGHT OUTER JOIN.
+
+2. Consultas de Agregado.
+
+3. Subqueries.
+
+4. JPQL ORDER BY.
