@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-@Entity(name = "comentarios")
+@Entity
+@Table(name="comentarios")
 public class Comentario {
 
     @Id
