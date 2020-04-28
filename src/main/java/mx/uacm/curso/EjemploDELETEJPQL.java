@@ -39,13 +39,25 @@ public class EjemploDELETEJPQL {
         
         //EJEMPLO DELETE CON SUBCONSULTAS Y FUNCIONES DE AGREGADO
         em.getTransaction().begin();//inicio de la transaccion
-        
-        
+                
         Query consulta2 = em.createQuery("DELETE Venta v WHERE v.id.orden IN(SELECT v.id.orden FROM Venta v GROUP BY v.id.orden HAVING SUM(v.cantidad)<=3)");       
         totalRenglonesModificados = consulta2.executeUpdate();
         System.out.println("renglones modificados (ventas):" + totalRenglonesModificados);        
 
         em.getTransaction().commit();//final de la transadccion               
+        
+        
+        
+        
+        //SOLUCION DEL EJERCICIO DELETE
+        em.getTransaction().begin();//inicio de la transaccion
+                
+        Query consulta3 = em.createQuery("DELETE Venta v WHERE v.id.orden IN (SELECT v.id.orden FROM Venta v WHERE v.cantidad=2)");       
+        totalRenglonesModificados = consulta3.executeUpdate();
+        System.out.println("renglones modificados (ventas):" + totalRenglonesModificados);        
+
+        em.getTransaction().commit();//final de la transadccion               
+
 
 
     }
