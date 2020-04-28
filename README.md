@@ -81,3 +81,14 @@ En esta sesión se revisarán los siguientes temas:
 3. Subqueries.
 
 4. JPQL ORDER BY.
+
+
+#### Martes 28 de Abril de 2020
+
+1. UPDATE CON JPQL
+
+2. DELETE CON JPQL
+
+3. CRITERIOS DE JPQL
+
+
