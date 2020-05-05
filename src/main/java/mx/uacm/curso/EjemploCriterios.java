@@ -54,7 +54,7 @@ public class EjemploCriterios {
         List<String> nombreProductos = consulta2.getResultList();
         System.out.println("productos:" + nombreProductos);
 
-        //EJEMPLO 3
+        //EJEMPLO 4
         //SELECT new com.proyecto.ArticuloDTO(a.id, a.titulo) FROM Articulo a 
         CriteriaQuery<ArticuloDTO> criterio3 = constructor.createQuery(ArticuloDTO.class);
         Root<Articulo> a = criterio3.from(Articulo.class);
@@ -65,7 +65,18 @@ public class EjemploCriterios {
         for(ArticuloDTO ad : articulosdtos){
             System.out.println("titulo:" + ad.getTitulo());
         }
-
-    }
+        
+        //EJEMPLO 5
+        //SELECT a.id as "elId", a.titulo as "elTitulo" FROM Articulo
+        CriteriaQuery<Tuple> criterio5 = constructor.createTupleQuery();
+        Root<Articulo> a2= criterio5.from(Articulo.class);
+        criterio5.select(constructor.tuple(a2.get("id").alias("elId"), a2.get("titulo").alias("elTitulo")));
+        
+        TypedQuery<Tuple> consulta5 = em.createQuery(criterio5);
+        List<Tuple> tuplas = consulta5.getResultList();
+        for(Tuple tupla:tuplas){
+            System.out.println("el Id" + tupla.get("elId") + ", titulo:" + tupla.get("elTitulo"));
+        }
+    }   
 
 }
