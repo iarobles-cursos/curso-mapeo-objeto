@@ -24,13 +24,16 @@ public class EjemploCriterios {
         EntityManager em = emf.createEntityManager();
 
         //SELECT v FROM Venta v WHERE v.id.orden=1
+        
         boolean incluirWhere = false;
         CriteriaBuilder constructor = em.getCriteriaBuilder();
         CriteriaQuery<Venta> criterio = constructor.createQuery(Venta.class);
         Root<Venta> v = criterio.from(Venta.class);
         criterio.select(v);
-        if (incluirWhere) {
-            criterio.where(constructor.equal(v.get("id").get("orden"), 1));
+        if (incluirWhere) {                        
+            //criterio.where(constructor.equal(v.get("id").get("orden"), 1));
+            //WHERE v.id.orden>1
+            criterio.where(constructor.greaterThan(v.get("id").<Integer>get("orden"), 1));
         }
 
         TypedQuery<Venta> consulta = em.createQuery(criterio);
@@ -39,6 +42,7 @@ public class EjemploCriterios {
         for (Venta venta : ventas) {
             System.out.println("producto:" + venta.getNombreProducto());
         }
+        
 
     }
 
