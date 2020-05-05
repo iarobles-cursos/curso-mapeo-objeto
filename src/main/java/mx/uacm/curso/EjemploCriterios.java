@@ -85,12 +85,24 @@ public class EjemploCriterios {
         criterio6.select(constructor.sum(v3.<Integer>get("cantidad")));
         criterio6.where(constructor.greaterThanOrEqualTo(v3.get("id").<Integer>get("orden"), 1));
         criterio6.groupBy(v3.get("id").get("orden"));
-         
-        TypedQuery<Integer> consulta6=em.createQuery(criterio6);
+
+        TypedQuery<Integer> consulta6 = em.createQuery(criterio6);
         List<Integer> sumas = consulta6.getResultList();
         System.out.println("sumas:" + sumas);
-        
 
+        //SOL EJERCICIO
+        //SELECT v.id.orden as id, SUM(v.cantidad) as total FROM Venta v WHERE v.id.orden>=1 GROUP BY v.id.orden
+        CriteriaQuery criterio7 = constructor.createTupleQuery();
+        Root<Venta> v4 = criterio7.from(Venta.class);
+        criterio7.select(constructor.tuple(v4.get("id").get("orden").alias("id"), constructor.sum(v4.<Integer>get("cantidad")).alias("total") ));
+        criterio7.where(constructor.greaterThanOrEqualTo(v4.get("id").<Integer>get("orden"), 1));
+        criterio7.groupBy(v4.get("id").get("orden"));
+
+        TypedQuery<Tuple> consulta7 = em.createQuery(criterio7);
+        List<Tuple> tuplas2 = consulta7.getResultList();
+        for(Tuple tupla:tuplas2){
+            System.out.println("alias id:" + tupla.get("id") + ", alias total:" + tupla.get("total"));
+        }
     }
 
 }
