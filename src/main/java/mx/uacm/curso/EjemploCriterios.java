@@ -84,10 +84,13 @@ public class EjemploCriterios {
         Root<Venta> v3 = criterio6.from(Venta.class);
         criterio6.select(constructor.sum(v3.<Integer>get("cantidad")));
         criterio6.where(constructor.greaterThanOrEqualTo(v3.get("id").<Integer>get("orden"), 1));
-        criterio6.groupBy(v.get("id").get("orden"));
+        criterio6.groupBy(v3.get("id").get("orden"));
+         
+        TypedQuery<Integer> consulta6=em.createQuery(criterio6);
+        List<Integer> sumas = consulta6.getResultList();
+        System.out.println("sumas:" + sumas);
+        
 
-        TypedQuery<Integer> consulta6 = em.createQuery(criterio6);
-        System.out.println("suma:" + consulta6.getResultList());
     }
 
 }
