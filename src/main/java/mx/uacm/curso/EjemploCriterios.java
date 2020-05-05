@@ -58,25 +58,36 @@ public class EjemploCriterios {
         //SELECT new com.proyecto.ArticuloDTO(a.id, a.titulo) FROM Articulo a 
         CriteriaQuery<ArticuloDTO> criterio3 = constructor.createQuery(ArticuloDTO.class);
         Root<Articulo> a = criterio3.from(Articulo.class);
-        criterio3.select(constructor.construct(ArticuloDTO.class,a.get("id"),a.get("titulo")));
-        
+        criterio3.select(constructor.construct(ArticuloDTO.class, a.get("id"), a.get("titulo")));
+
         TypedQuery<ArticuloDTO> consulta3 = em.createQuery(criterio3);
         List<ArticuloDTO> articulosdtos = consulta3.getResultList();
-        for(ArticuloDTO ad : articulosdtos){
+        for (ArticuloDTO ad : articulosdtos) {
             System.out.println("titulo:" + ad.getTitulo());
         }
-        
+
         //EJEMPLO 5
         //SELECT a.id as "elId", a.titulo as "elTitulo" FROM Articulo
         CriteriaQuery<Tuple> criterio5 = constructor.createTupleQuery();
-        Root<Articulo> a2= criterio5.from(Articulo.class);
+        Root<Articulo> a2 = criterio5.from(Articulo.class);
         criterio5.select(constructor.tuple(a2.get("id").alias("elId"), a2.get("titulo").alias("elTitulo")));
-        
+
         TypedQuery<Tuple> consulta5 = em.createQuery(criterio5);
         List<Tuple> tuplas = consulta5.getResultList();
-        for(Tuple tupla:tuplas){
+        for (Tuple tupla : tuplas) {
             System.out.println("el Id" + tupla.get("elId") + ", titulo:" + tupla.get("elTitulo"));
         }
-    }   
+
+        //EJEMPLO 6
+        //SELECT SUM(v.cantidad) FROM Venta v WHERE v.id.orden>=1 GROUP BY v.id.orden
+        CriteriaQuery<Integer> criterio6 = constructor.createQuery(Integer.class);
+        Root<Venta> v3 = criterio6.from(Venta.class);
+        criterio6.select(constructor.sum(v3.<Integer>get("cantidad")));
+        criterio6.where(constructor.greaterThanOrEqualTo(v3.get("id").<Integer>get("orden"), 1));
+        criterio6.groupBy(v.get("id").get("orden"));
+
+        TypedQuery<Integer> consulta6 = em.createQuery(criterio6);
+        System.out.println("suma:" + consulta6.getResultList());
+    }
 
 }
