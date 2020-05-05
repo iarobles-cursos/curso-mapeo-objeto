@@ -89,6 +89,14 @@ En esta sesión se revisarán los siguientes temas:
 
 2. DELETE CON JPQL
 
-3. CRITERIOS DE JPQL
 
+#### Martes 5 de Mayo de 2020
 
+1. Introducción al API DE Criterios de JPA
+
+2. Selección de una propiedad de una entidad con Criterios 
+
+3. Selección de propiedades de una entidad con Criterios 
+
+4. Uso de funciones de agregado, operadores lógicos, expresiones de selección con
+   Criterios
