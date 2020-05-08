@@ -58,6 +58,13 @@
             <artifactId>spring-context</artifactId>
             <version>5.2.6.RELEASE</version>
         </dependency>
+        
+        <!-- dependencia para habilitar annotations de JSR-330 (inyección de dependencias) -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
 
 
   

@@ -5,6 +5,8 @@
  */
 package mx.uacm.curso.spring.impl;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import mx.uacm.curso.spring.FiltroSpam;
 import mx.uacm.curso.spring.ServicioEmail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +17,12 @@ import org.springframework.stereotype.Component;
  *
  * @author iarobles
  */
-@Component("servicioEmail")
+//@Component("servicioEmail")
+@Named("servicioEmail")
 public class ServicioEmailImpl implements ServicioEmail{
     
-    @Autowired
-    @Qualifier("filtroSpam")
+    @Inject //@Autowired
+    @Named("filtroSpam")//@Qualifier("filtroSpam")
     private FiltroSpam filtro;
 
     public FiltroSpam getFiltro() {
