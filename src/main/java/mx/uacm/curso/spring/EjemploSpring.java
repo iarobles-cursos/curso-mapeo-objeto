@@ -18,9 +18,10 @@ public class EjemploSpring {
         //creamo contenedor de spring (application context)
         ApplicationContext contexto = new ClassPathXmlApplicationContext("spring-context.xml");
         ServicioEmail servicioEmail = contexto.getBean("servicioEmail",ServicioEmail.class);
-        servicioEmail.procesarEmail(1);
+        servicioEmail.procesarEmail(1);                
         
-        
+        EstadisticasServicio estadisticasServicio = contexto.getBean("estadisticasServicio", EstadisticasServicio.class);
+        estadisticasServicio.generarReporte();
         
     }
     

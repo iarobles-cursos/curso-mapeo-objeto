@@ -13,7 +13,16 @@
     </bean>
     
     <bean id="filtroSpam" class="mx.uacm.curso.spring.impl.FiltroSpamImpl2">        
-    </bean>
+    </bean>        
+    
+    
+    <bean id="regresion" class="mx.uacm.curso.spring.impl.RegresionImpl">        
+    </bean>        
+    
+    <bean id="estadisticasServicio" class="mx.uacm.curso.spring.impl.EstadisticasServicioImpl">        
+        <property name="regresion" ref="regresion"/>
+    </bean>        
+    
     
 
 </beans>

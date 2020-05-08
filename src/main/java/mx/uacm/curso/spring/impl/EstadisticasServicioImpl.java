@@ -19,16 +19,25 @@ public class EstadisticasServicioImpl implements EstadisticasServicio {
 
     @Override
     public String generarReporte() {
-
+        
+        System.out.println("generando reporte...");
         //simulamos que obtuvimos datos numericos de la base:
         double x[] = {1, 2, 3, 4, 5};
-        double y[] = {1.3, 1.9, 2.3, 2.9,3.4};
+        double y[] = {1.3, 1.9, 2.3, 2.9, 3.4};                
         double z[] = regresion.valoresRegresionLineal(x, y);
-        
+
         //armamos el "reporte"
         String reporte = "x:" + Arrays.asList(x) + "y:" + Arrays.asList(y) + ", regresion lineal:" + Arrays.asList(z);
 
         return reporte;
     }
+
+    public void setRegresion(Regresion regresion) {
+        this.regresion = regresion;
+    }
+
+    public Regresion getRegresion() {
+        return regresion;
+    }        
 
 }
