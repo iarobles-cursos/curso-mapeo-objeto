@@ -100,3 +100,17 @@ En esta sesión se revisarán los siguientes temas:
 
 4. Uso de funciones de agregado, operadores lógicos, expresiones de selección con
    Criterios
+
+
+#### Viernes 8 de Mayo de 2020
+
+ 1. Introducción a Spring Framework
+
+ 2. Inyección de dependencias (por constructor y por propiedades).
+
+ 3. Declaración de beans de Spring por xml y annotations.
+
+ 4. Configuración de Spring por xml y annotations.
+
+ 5. Configuración básica para integrar Spring con JPA.
+
