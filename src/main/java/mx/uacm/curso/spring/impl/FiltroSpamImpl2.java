@@ -11,11 +11,11 @@ import mx.uacm.curso.spring.FiltroSpam;
  *
  * @author iarobles
  */
-public class FiltroSpamImpl implements FiltroSpam{
+public class FiltroSpamImpl2 implements FiltroSpam{ //segunda implementación de filtro para spam
 
     @Override
     public boolean posibleSpam(String textoEmail) {
-        System.out.println("filtro de spam analizando texto:" + textoEmail);        
+        System.out.println("filtro de spam (segunda implementacion) analizando texto:" + textoEmail);        
         return true;
     }
 

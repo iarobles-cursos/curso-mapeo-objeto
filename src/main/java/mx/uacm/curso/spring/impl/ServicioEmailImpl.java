@@ -5,13 +5,15 @@
  */
 package mx.uacm.curso.spring.impl;
 
+import mx.uacm.curso.spring.FiltroSpam;
+
 /**
  *
  * @author iarobles
  */
 public class ServicioEmailImpl {
 
-    FiltroSpamImpl filtro;
+    FiltroSpam filtro;
 
     public void procesarEmail(Integer id) {
 
