@@ -50,6 +50,16 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.10</version>
         </dependency>
+        
+              
+        <!-- dependencias para contenedor de spring application context -->      
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.2.6.RELEASE</version>
+        </dependency>
+
+
   
     </dependencies>
     

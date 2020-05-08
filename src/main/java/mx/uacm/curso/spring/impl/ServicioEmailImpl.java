@@ -6,22 +6,33 @@
 package mx.uacm.curso.spring.impl;
 
 import mx.uacm.curso.spring.FiltroSpam;
+import mx.uacm.curso.spring.ServicioEmail;
 
 /**
  *
  * @author iarobles
  */
-public class ServicioEmailImpl {
+public class ServicioEmailImpl implements ServicioEmail{
 
-    FiltroSpam filtro;
+    private FiltroSpam filtro;
+
+    public FiltroSpam getFiltro() {
+        return filtro;
+    }
+
+    public void setFiltro(FiltroSpam filtro) {
+        this.filtro = filtro;
+    }
 
     public void procesarEmail(Integer id) {
+        
+        System.out.println("procesando email");
 
         //imaginemos que se obtuvo texto de emails de la base
         //y que se van a evaluar para determinar si son spam
         //por la herramienta de filtros de spam:
         String textoEmail = "email texto 1";
-        if(filtro.posibleSpam(textoEmail)){
+        if (filtro.posibleSpam(textoEmail)) {
             System.out.println("es spam!");
         } else {
             System.out.println("todo bien con el correo!");
