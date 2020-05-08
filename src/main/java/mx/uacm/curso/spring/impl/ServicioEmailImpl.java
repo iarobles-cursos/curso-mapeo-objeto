@@ -7,13 +7,19 @@ package mx.uacm.curso.spring.impl;
 
 import mx.uacm.curso.spring.FiltroSpam;
 import mx.uacm.curso.spring.ServicioEmail;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author iarobles
  */
+@Component("servicioEmail")
 public class ServicioEmailImpl implements ServicioEmail{
-
+    
+    @Autowired
+    @Qualifier("filtroSpam")
     private FiltroSpam filtro;
 
     public FiltroSpam getFiltro() {

@@ -6,11 +6,13 @@
 package mx.uacm.curso.spring.impl;
 
 import mx.uacm.curso.spring.FiltroSpam;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author iarobles
  */
+@Component("filtroSpam") // es equivalente en xml <bean id="filtroSpam" class="mx.uacm.curso.spring.impl.FiltroSpamImpl">
 public class FiltroSpamImpl implements FiltroSpam{
 
     @Override

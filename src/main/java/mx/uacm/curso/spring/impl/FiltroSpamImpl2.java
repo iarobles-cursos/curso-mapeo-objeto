@@ -6,11 +6,13 @@
 package mx.uacm.curso.spring.impl;
 
 import mx.uacm.curso.spring.FiltroSpam;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author iarobles
  */
+//@Component("filtroSpam2")
 public class FiltroSpamImpl2 implements FiltroSpam{ //segunda implementación de filtro para spam
 
     @Override
