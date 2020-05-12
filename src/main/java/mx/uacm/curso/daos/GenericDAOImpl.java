@@ -6,6 +6,7 @@
 package mx.uacm.curso.daos;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import mx.uacm.curso.entidades.Articulo;
 
 /**
@@ -13,7 +14,8 @@ import mx.uacm.curso.entidades.Articulo;
  * @author Alumno
  */
 public abstract class GenericDAOImpl<T, PK> implements GenericDAO<T,PK> {
-
+    
+    @PersistenceContext
     protected EntityManager em;
     
     private Class<T> clase;

@@ -19,8 +19,7 @@ import org.springframework.stereotype.Component;
  */
 @Component("articuloDAO")
 public class ArticuloDAOImpl extends GenericDAOImpl<Articulo, Integer> implements ArticuloDAO{
-    
-    @Autowired
+            
     public ArticuloDAOImpl(EntityManager em) {
         //invocamos al constructor del padre
         super(em, Articulo.class);
