@@ -17,6 +17,10 @@ public class RegresionImpl implements Regresion {
     public RegresionImpl(){
         System.out.println("creando instancia de RegresionImpl");
     }
+    
+    public RegresionImpl(Utileria utileria){ //indice 0 del constructor, 
+        System.out.println("creando instancia de RegresionImpl usando utileria:" + utileria);        
+    }
 
     public double[] valoresRegresionLineal(double[] x, double[] y) {
         //supuestamente calculamos la regresion lineal:
