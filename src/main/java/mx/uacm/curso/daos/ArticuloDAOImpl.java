@@ -10,13 +10,17 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import mx.uacm.curso.entidades.Articulo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Alumno
  */
+@Component("articuloDAO")
 public class ArticuloDAOImpl extends GenericDAOImpl<Articulo, Integer> implements ArticuloDAO{
-
+    
+    @Autowired
     public ArticuloDAOImpl(EntityManager em) {
         //invocamos al constructor del padre
         super(em, Articulo.class);

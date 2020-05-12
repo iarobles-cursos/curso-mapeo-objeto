@@ -65,6 +65,29 @@
             <artifactId>javax.inject</artifactId>
             <version>1</version>
         </dependency>
+        
+        
+        
+
+        <!-- DEPENDENCIA PARA INTEGRAR SPRING CON JPA -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>5.2.6.RELEASE</version>
+        </dependency>
+
+        <!-- dependencias para transacciones declarativas con spring y jpa -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>5.2.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>1.9.4</version>
+        </dependency>
+
 
 
   

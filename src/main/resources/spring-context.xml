@@ -27,9 +27,35 @@
     
     <bean id="estadisticasServicio" class="mx.uacm.curso.spring.impl.EstadisticasServicioImpl">        
         <property name="regresion" ref="regresion"/>
-    </bean>        
+    </bean>
     
-    <context:component-scan base-package="mx.uacm.curso.spring.impl"/>            
+            
+    <!-- declaracion de dao en el contenedor de  spring -->        
+    <!--
+    <bean id="articuloDAO" class="mx.uacm.curso.daos.ArticuloDAOImpl">
+        <constructor-arg index="0" ref="em" />
+    </bean>
+    -->
+       
+    
+    <bean id="emf"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <!-- referenciamos a la unidad de persistencia del archivo persistence.xml -->
+        <property name="persistenceUnitName" value="blog-pruebas-memoria" />
+    </bean>
+    <bean id="em" class = "org.springframework.orm.jpa.support.SharedEntityManagerBean">
+        <property name = "entityManagerFactory" ref="emf"/>  
+    </bean>
+    <!-- manejo de transacciones -->    
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf" />
+    </bean>
+    
+    <tx:annotation-driven transaction-manager="transactionManager" /> 
+          
+    <context:component-scan base-package="mx.uacm.curso.spring.impl"/> 
+    <context:component-scan base-package="mx.uacm.curso.daos"/> 
+               
     
 
 </beans>
