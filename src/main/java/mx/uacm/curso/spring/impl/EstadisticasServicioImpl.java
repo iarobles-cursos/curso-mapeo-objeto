@@ -8,14 +8,16 @@ package mx.uacm.curso.spring.impl;
 import java.util.Arrays;
 import mx.uacm.curso.spring.EstadisticasServicio;
 import mx.uacm.curso.spring.Regresion;
+import mx.uacm.curso.spring.RegresionFabrica;
 
 /**
  *
  * @author iarobles
  */
 public class EstadisticasServicioImpl implements EstadisticasServicio {
-
-    private Regresion regresion;
+    
+    //podemos usar una fabrica para asignar la implementacion
+    private Regresion regresion = RegresionFabrica.obtenRegresion();
 
     @Override
     public String generarReporte() {
