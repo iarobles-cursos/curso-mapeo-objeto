@@ -17,13 +17,24 @@ public class EjemploSpring {
     
     public static void main(String[] args) {
         //creamo contenedor de spring (application context)
-        //ApplicationContext contexto = new ClassPathXmlApplicationContext("spring-context.xml");
-        ApplicationContext contexto  = new AnnotationConfigApplicationContext(Configuracion.class);
+        ApplicationContext contexto = new ClassPathXmlApplicationContext("spring-context.xml");
+        //ApplicationContext contexto  = new AnnotationConfigApplicationContext(Configuracion.class);
         ServicioEmail servicioEmail = contexto.getBean("servicioEmail",ServicioEmail.class);
         servicioEmail.procesarEmail(1);                
         
         EstadisticasServicio estadisticasServicio = contexto.getBean("estadisticasServicio", EstadisticasServicio.class);
         estadisticasServicio.generarReporte();
+        
+        
+        System.out.println("---- solicitando bean regresion (primera vez) ----");
+        Regresion regresion = contexto.getBean("regresion", Regresion.class);
+        System.out.println("---- solicitud de bean regresion terminada (primera vez) ----");
+        
+        
+        System.out.println("---- solicitando bean regresion (segunda vez) ----");
+        regresion = contexto.getBean("regresion", Regresion.class);
+        System.out.println("---- solicitud de bean regresion terminada (segunda vez) ----");
+        
         
     }
     

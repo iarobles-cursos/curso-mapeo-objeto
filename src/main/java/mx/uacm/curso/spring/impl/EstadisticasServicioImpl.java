@@ -17,7 +17,8 @@ import mx.uacm.curso.spring.RegresionFabrica;
 public class EstadisticasServicioImpl implements EstadisticasServicio {
     
     //podemos usar una fabrica para asignar la implementacion
-    private Regresion regresion = RegresionFabrica.obtenRegresion();
+    //private Regresion regresion = RegresionFabrica.obtenRegresion();
+    private Regresion regresion;
 
     @Override
     public String generarReporte() {

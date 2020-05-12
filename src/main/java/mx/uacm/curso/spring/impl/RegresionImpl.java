@@ -12,6 +12,11 @@ import mx.uacm.curso.spring.Regresion;
  * @author iarobles
  */
 public class RegresionImpl implements Regresion {
+    
+    
+    public RegresionImpl(){
+        System.out.println("creando instancia de RegresionImpl");
+    }
 
     public double[] valoresRegresionLineal(double[] x, double[] y) {
         //supuestamente calculamos la regresion lineal:
