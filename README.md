@@ -114,3 +114,18 @@ En esta sesión se revisarán los siguientes temas:
 
  5. Configuración básica para integrar Spring con JPA.
 
+
+#### Martes 12 de Mayo de 2020
+
+ 1. Patrón de diseño factory.
+
+ 2. Scope de un bean de Spring.
+
+ 3. Inyección de dependencias en el constructor.
+
+ 4. Integración de JPA con Spring.
+
+ 5. Tipos de entity managers y administradores de transacción.
+
+
+ 
