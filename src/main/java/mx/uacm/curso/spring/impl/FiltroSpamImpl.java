@@ -6,6 +6,8 @@
 package mx.uacm.curso.spring.impl;
 
 import mx.uacm.curso.spring.FiltroSpam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -15,16 +17,21 @@ import org.springframework.stereotype.Component;
  */
 @Component("filtroSpam") // es equivalente en xml <bean id="filtroSpam" class="mx.uacm.curso.spring.impl.FiltroSpamImpl">
 @Scope("prototype") //es equivalente en xml a poner en la etiqueta <bean>, el atributo scope="prototype"
-public class FiltroSpamImpl implements FiltroSpam{
+public class FiltroSpamImpl implements FiltroSpam {
 
     public FiltroSpamImpl() {
         System.out.println("creando filtro spam (implementacion 1)");
-    }  
+    }
+    
+    @Autowired
+    public FiltroSpamImpl(@Qualifier("utileria") Utileria utileria) {
+        System.out.println("creando filtro spam (implementacion 1), usando utileria:" + utileria);
+    }
     
 
     @Override
     public boolean posibleSpam(String textoEmail) {
-        System.out.println("filtro de spam analizando texto:" + textoEmail);        
+        System.out.println("filtro de spam analizando texto:" + textoEmail);
         return true;
     }
 
