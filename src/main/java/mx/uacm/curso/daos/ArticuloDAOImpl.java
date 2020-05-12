@@ -12,12 +12,14 @@ import javax.persistence.TypedQuery;
 import mx.uacm.curso.entidades.Articulo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Alumno
  */
 @Component("articuloDAO")
+@Transactional //habilitamos transacciones para cada metodo de este dao
 public class ArticuloDAOImpl extends GenericDAOImpl<Articulo, Integer> implements ArticuloDAO{
             
     public ArticuloDAOImpl(EntityManager em) {

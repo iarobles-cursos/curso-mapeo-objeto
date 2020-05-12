@@ -52,6 +52,10 @@ public class EjemploSpring {
         Articulo a = articuloDAO.buscarPorId(1);
         System.out.println("titulo articulo:" + a.getTitulo());
         
+        Articulo articulo = new Articulo();
+        articulo.setTitulo("articulo jpa/spring");
+        articuloDAO.guardar(articulo);
+        
     }
     
 }

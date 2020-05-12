@@ -8,11 +8,13 @@ package mx.uacm.curso.daos;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import mx.uacm.curso.entidades.Articulo;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Alumno
  */
+@Transactional
 public abstract class GenericDAOImpl<T, PK> implements GenericDAO<T,PK> {
     
     @PersistenceContext
