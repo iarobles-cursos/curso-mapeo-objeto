@@ -10,6 +10,7 @@ import mx.uacm.curso.spring.impl.RegresionImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Configuracion {
     //el siguiente codigo es equivalente a la configuracion de xml:
     //<bean id="regresion" class="mx.uacm.curso.spring.impl.RegresionImpl"></bean>        
     @Bean("regresion")
+    @Scope("prototype") //esto equivale a la configuracion de xml scope="prototype"
     public RegresionImpl obtenRegresion(){
         return new RegresionImpl();
     }
