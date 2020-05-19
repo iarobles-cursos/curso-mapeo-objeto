@@ -128,4 +128,14 @@ En esta sesión se revisarán los siguientes temas:
  5. Tipos de entity managers y administradores de transacción.
 
 
+#### Martes 19 de Mayo de 2020
+
+ 1. Tipos de Entity Managers y administradores de transacciones
+
+ 2. Propiedades de una transacción: propagación
  
+ 3. Propiedades de una transacción: timeout
+
+ 4. Propiedades de una transacción: rollback
+
+ 5. Propiedades de una transacción: aislamiento
