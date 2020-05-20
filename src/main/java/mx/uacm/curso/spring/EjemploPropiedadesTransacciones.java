@@ -18,7 +18,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class EjemploPropiedadesTransacciones {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EjemploRollbackExcepcion{
         //creamos contenedor de spring (application context)
         ApplicationContext contexto = new ClassPathXmlApplicationContext("spring-context.xml");
         ArticulosServicio articulosServicio = contexto.getBean("articulosServicio", ArticulosServicio.class);

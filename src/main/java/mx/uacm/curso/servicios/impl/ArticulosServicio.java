@@ -7,6 +7,7 @@ package mx.uacm.curso.servicios.impl;
 
 import mx.uacm.curso.entidades.Articulo;
 import mx.uacm.curso.entidades.DatosArticulo;
+import mx.uacm.curso.spring.EjemploRollbackExcepcion;
 
 /**
  *
@@ -14,6 +15,6 @@ import mx.uacm.curso.entidades.DatosArticulo;
  */
 public interface ArticulosServicio {
 
-    Articulo guardarArticuloConDatos(Articulo articulo, DatosArticulo datos);
+    Articulo guardarArticuloConDatos(Articulo articulo, DatosArticulo datos) throws EjemploRollbackExcepcion;
     
 }
