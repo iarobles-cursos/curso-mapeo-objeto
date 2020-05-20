@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author iarobles
  */
 @Component("articulosServicio")
-@Transactional(rollbackFor = {EjemploRollbackExcepcion.class}) //indicamos que se debe activar el rollback con esta exepcion (checked)
+@Transactional(timeout=3, rollbackFor = {EjemploRollbackExcepcion.class}) //indicamos que se debe activar el rollback con esta exepcion (checked)
 public class ArticulosServicioImpl implements ArticulosServicio {
 
     @Autowired
