@@ -21,7 +21,7 @@ public class ConsultorJPQLQueries {
     public static void main(String[] args) throws IOException {
 
         //Para usar la base de datos en memoria:
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("blog-pruebas-memoria");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("blog-pruebas");
         //Para usar la base de datos "de verdad", comente la linea de arriba y descomente la siguiente linea.
         //EntityManagerFactory emf = Persistence.createEntityManagerFactory("base-pruebas");
         EntityManager em = emf.createEntityManager();

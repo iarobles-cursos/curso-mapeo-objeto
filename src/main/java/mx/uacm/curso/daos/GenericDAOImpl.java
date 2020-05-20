@@ -7,7 +7,7 @@ package mx.uacm.curso.daos;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import mx.uacm.curso.entidades.Articulo;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -32,7 +32,8 @@ public abstract class GenericDAOImpl<T, PK> implements GenericDAO<T,PK> {
     public T buscarPorId(PK id) {
         return this.em.find(this.clase, id);
     }
-    
+
+    //@Transactional(propagation = Propagation.NEVER)    
     public T guardar(T a) {
         return this.em.merge(a);
     }

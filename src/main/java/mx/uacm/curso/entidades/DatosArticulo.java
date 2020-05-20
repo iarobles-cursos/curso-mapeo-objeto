@@ -46,4 +46,12 @@ public class DatosArticulo {
         this.observaciones = observaciones;
     }
 
+    public Articulo getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
+    }
+
 }
