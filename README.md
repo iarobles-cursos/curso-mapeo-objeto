@@ -139,3 +139,14 @@ En esta sesión se revisarán los siguientes temas:
  4. Propiedades de una transacción: rollback
 
  5. Propiedades de una transacción: aislamiento
+
+#### Viernes 22 de Mayo de 2020
+
+ 1. Servidores de aplicaciones
+ 
+ 2. Configuración básica de Tomcat/TomEE
+
+ 3. Introducción a Servlets
+
+ 4. Introducción a Spring MVC
+
