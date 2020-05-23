@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <servlet>
+        <servlet-name>holaservlet</servlet-name>
+        <servlet-class>mx.uacm.curso.servlets.HolaMundoServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>holaservlet</servlet-name>
+        <!-- atiende peticiones en la url http://localhost:8080/CONTEXT-ROOT/hola -->
+        <url-pattern>/hola</url-pattern>
+    </servlet-mapping>
+
+    
+    
+    <servlet>
+        <servlet-name>holamvcservlet</servlet-name>
+        <servlet-class>mx.uacm.curso.servlets.HolaMundoMVCServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>holamvcservlet</servlet-name>
+        <!-- atiende peticiones en la url http://localhost:8080/CONTEXT-ROOT/hola -->
+        <url-pattern>/holamvc</url-pattern>
+    </servlet-mapping>
+
+</web-app>
