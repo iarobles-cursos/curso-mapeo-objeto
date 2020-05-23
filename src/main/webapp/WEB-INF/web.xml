@@ -11,8 +11,7 @@
         <!-- atiende peticiones en la url http://localhost:8080/CONTEXT-ROOT/hola -->
         <url-pattern>/hola</url-pattern>
     </servlet-mapping>
-
-    
+        
     
     <servlet>
         <servlet-name>holamvcservlet</servlet-name>
@@ -24,5 +23,6 @@
         <!-- atiende peticiones en la url http://localhost:8080/CONTEXT-ROOT/hola -->
         <url-pattern>/holamvc</url-pattern>
     </servlet-mapping>
+    
 
 </web-app>
