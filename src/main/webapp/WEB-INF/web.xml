@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     
+    <context-param>
+        <param-name>archivoConfiguracion</param-name>
+        <param-value>/carpeta/archivo.xml</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>parametro2</param-name>
+        <param-value>valor2</param-value>
+    </context-param>
+    
+    <listener>
+        <listener-class>mx.uacm.curso.listeners.EjemploServletContextListener</listener-class>
+    </listener>            
+    
     <servlet>
         <servlet-name>holaservlet</servlet-name>
         <servlet-class>mx.uacm.curso.servlets.HolaMundoServlet</servlet-class>
+        <init-param>
+            <param-name>parametroservlet1</param-name>
+            <param-value>valor parametro servlet</param-value>
+        </init-param>
+        <init-param>
+            <param-name>parametroservlet2</param-name>
+            <param-value>valor 2 parametro servlet</param-value>
+        </init-param>
     </servlet>
     
     <servlet-mapping>
