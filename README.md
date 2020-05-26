@@ -150,3 +150,13 @@ En esta sesión se revisarán los siguientes temas:
 
  4. Introducción a Spring MVC
 
+
+#### Martes 26 de Mayo de 2020
+
+ 1. Listeners en Servlets
+ 
+ 2. Introducción a Spring MVC
+
+ 3. Integración de Spring MVC con JPA
+
+
