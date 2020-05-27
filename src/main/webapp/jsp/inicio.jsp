@@ -1,10 +1,10 @@
 <%-- 
     Document   : inicio
-    Created on : 26/05/2020, 06:10:13 PM
     Author     : iarobles
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +12,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Inicio aplicación</h1>
+        <h1><c:out value="${mensaje}" /></h1>
+        <c:forEach var="articulo" items="${articulos}">
+            <div>
+                <h2><c:out value="${articulo.titulo}"/></h2>
+                <p><c:out value="${articulo.contenido}"/></p>
+            </div>
+        </c:forEach>
     </body>
 </html>
