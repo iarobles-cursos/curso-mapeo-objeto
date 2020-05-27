@@ -6,8 +6,12 @@
 package mx.uacm.curso.controladores;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import mx.uacm.curso.daos.ArticuloDAO;
 import mx.uacm.curso.entidades.Articulo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class InicioControlador {
     
+    @Autowired
+    private ArticuloDAO articuloDAO;
+    
     
     // definimos que este controlador va antender la url:
     // http://localhost:8080/CONTEXT-ROOT/spring/inicio
@@ -31,6 +38,7 @@ public class InicioControlador {
         String mensajePersonalizado = "hola, este es el inicio";
         modelo.addAttribute("mensaje", mensajePersonalizado);
         
+        /*
         List<Articulo> listaArticulos = new ArrayList<>();
         Articulo a1 = new Articulo();
         a1.setTitulo("titulo 1");
@@ -41,6 +49,11 @@ public class InicioControlador {
         a2.setTitulo("titulo 2");
         a2.setContenido("contenido 2");
         listaArticulos.add(a2);
+         */
+        GregorianCalendar cal = new GregorianCalendar(1960,0,1);
+        Date fechaMinima = cal.getTime();
+        
+        List<Articulo> listaArticulos = articuloDAO.obtenArticulosPorFechaMinima(fechaMinima);
         
         modelo.addAttribute("articulos", listaArticulos);
         
