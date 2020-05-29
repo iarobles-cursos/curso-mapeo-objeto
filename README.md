@@ -160,3 +160,15 @@ En esta sesión se revisarán los siguientes temas:
  3. Integración de Spring MVC con JPA
 
 
+#### Viernes 29 de Mayo de 2020
+
+ 1. Integración de Spring MVC + JPA + Thymeleaf
+ 
+ 2. Introducción a Thymeleaf
+
+ 3. LazyInitializationException y el problema N+1.
+
+ 4. Servidores embebidos (introducción al API de Tomcat embebido).
+
+
+
