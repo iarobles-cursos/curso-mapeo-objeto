@@ -112,6 +112,20 @@
             <artifactId>spring-webmvc</artifactId>            
             <version>5.2.6.RELEASE</version>
         </dependency>   
+        
+        <!-- dependencias para Thymeleaf -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>3.0.11.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring5</artifactId>
+            <version>3.0.11.RELEASE</version>
+        </dependency>
+
+
 
 
          

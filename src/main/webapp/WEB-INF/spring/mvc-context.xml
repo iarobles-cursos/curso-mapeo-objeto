@@ -7,12 +7,29 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <annotation-driven />
+    
+    <beans:bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+        <beans:property name="prefix" value="/vistas/" />
+        <beans:property name="suffix" value=".html" />
+        <beans:property name="templateMode" value="HTML5" />
+        <beans:property name="cacheable" value="false" />
+    </beans:bean>
 
+    <beans:bean id="templateEngine" class="org.thymeleaf.spring5.SpringTemplateEngine">
+        <beans:property name="templateResolver" ref="templateResolver" />
+    </beans:bean>
+
+    <beans:bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <beans:property name="templateEngine" ref="templateEngine" />
+    </beans:bean>
+    
+    <!--
     <beans:bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/jsp/" />
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
+    -->
 
     <context:component-scan base-package="mx.uacm.curso.controladores" />
     
