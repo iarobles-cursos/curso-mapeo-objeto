@@ -11,11 +11,13 @@ import javax.persistence.TypedQuery;
 import mx.uacm.curso.dtos.UsuarioDTO;
 import mx.uacm.curso.entidades.Articulo;
 import mx.uacm.curso.entidades.Usuario;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Alumno
  */
+@Component
 public class UsuarioDAOImpl extends GenericDAOImpl<Usuario,Integer> implements UsuarioDAO{
     
     public UsuarioDAOImpl(EntityManager em) {
