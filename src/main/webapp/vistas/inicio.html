@@ -12,6 +12,10 @@
             <div>
                 <h2 th:text="${articulo.titulo}">titulo articulo default (thymeleaf)</h2>
                 <p th:text="${articulo.contenido}">contenido articulo default (thymeleaf)</p>
+                <h4>Comentarios:</h4>
+                <div th:each="comentario:${articulo.comentarios}">
+                    <p th:text="${comentario.comentario}">comentario default (thymeleaf)</p>
+                </div>
             </div>
         </div>        
         

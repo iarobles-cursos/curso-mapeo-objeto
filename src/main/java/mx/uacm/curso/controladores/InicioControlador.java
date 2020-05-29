@@ -53,7 +53,7 @@ public class InicioControlador {
         GregorianCalendar cal = new GregorianCalendar(1960,0,1);
         Date fechaMinima = cal.getTime();
         
-        List<Articulo> listaArticulos = articuloDAO.obtenArticulosPorFechaMinima(fechaMinima);
+        List<Articulo> listaArticulos = articuloDAO.obtenArticulosConComentariosPorFechaMinima(fechaMinima);
         
         modelo.addAttribute("articulos", listaArticulos);
         

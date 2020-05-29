@@ -24,5 +24,7 @@ public interface ArticuloDAO extends GenericDAO<Articulo, Integer> {
     Long totalArticulosConComentarios();
     
     Long totalComentariosPorArticulo(Integer articuloId);
+    
+    List<Articulo> obtenArticulosConComentariosPorFechaMinima(Date fechaMinima);
 
 }

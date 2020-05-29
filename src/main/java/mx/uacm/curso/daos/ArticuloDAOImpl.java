@@ -31,6 +31,18 @@ public class ArticuloDAOImpl extends GenericDAOImpl<Articulo, Integer> implement
         TypedQuery<Long> consulta = em.createQuery("SELECT COUNT(a) FROM Articulo a",Long.class);
         return consulta.getSingleResult();
     }
+    
+    
+    @Override
+    public List<Articulo> obtenArticulosConComentariosPorFechaMinima(Date fechaMinima) {
+
+        TypedQuery<Articulo> consulta = em.createQuery("SELECT a FROM Articulo a JOIN FETCH a.comentarios c WHERE a.fechaCreacion>=:fecha",Articulo.class);
+        consulta.setParameter("fecha", fechaMinima);
+        List<Articulo> articulos = consulta.getResultList();        
+        
+        return articulos;
+    }
+    
 
     @Override
     public List<Articulo> obtenArticulosPorFechaMinima(Date fechaMinima) {
@@ -47,6 +59,14 @@ public class ArticuloDAOImpl extends GenericDAOImpl<Articulo, Integer> implement
         TypedQuery<Articulo> consulta = em.createQuery("SELECT a FROM Articulo a WHERE a.fechaCreacion>=:fecha",Articulo.class);
         consulta.setParameter("fecha", fechaMinima);
         List<Articulo> articulos = consulta.getResultList();        
+        
+        //forzamos la carga de los comentarios de cada articulo
+//        System.out.println("################### ");
+//        for(Articulo a : articulos){
+//            a.getComentarios().size();
+//        }
+//        System.out.println("################### ");
+        
         
         return articulos;        
     }
