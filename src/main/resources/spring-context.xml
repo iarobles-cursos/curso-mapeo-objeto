@@ -42,6 +42,7 @@
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <!-- referenciamos a la unidad de persistencia del archivo persistence.xml -->
         <property name="persistenceUnitName" value="blog-pruebas-memoria" />
+        <property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
     </bean>
     <bean id="em" class = "org.springframework.orm.jpa.support.SharedEntityManagerBean">
         <property name = "entityManagerFactory" ref="emf"/>  
