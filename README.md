@@ -172,3 +172,13 @@ En esta sesión se revisarán los siguientes temas:
 
 
 
+
+#### Martes 2 de Junio de 2020
+
+ 1. Integración de JPA+Spring MVC con PostgreSQL
+ 
+ 2. Introducción a Spring Boot
+
+ 3. Introducción a Spring Data JPA
+
+
