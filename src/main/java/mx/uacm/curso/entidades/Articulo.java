@@ -28,7 +28,7 @@ import javax.persistence.Table;
  *
  */
 //@Entity(name="BlogArticulo")
-@Entity(name="Articulo")
+@Entity(name = "Articulo")
 @Table(name = "articulos")
 public class Articulo {
 
@@ -51,7 +51,7 @@ public class Articulo {
 
     //EJERCICIO
     //MAPEAR Articulo con DatosArticulo
-    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+    @OneToOne
     @JoinColumn(name = "datos_articulo_id")
     private DatosArticulo datosArticulo;
 
@@ -59,22 +59,24 @@ public class Articulo {
     //mappedBy se llena del nombre de la propiedad
     //         que en la entidad dueña se usa para mapear
     //         esta entidad
-    @OneToMany(mappedBy = "articulo", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "articulo")
     @OrderBy("fechaCreacion DESC")
     private List<Comentario> comentarios;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-    
+
     //tener mucho cuidado si se pone la operacion en cascada REMOVE
     //sol ejercicio: habilitamos estrategia de carga eager en las categorias del articulo
-    @ManyToMany(mappedBy = "articulos", cascade = {CascadeType.MERGE},fetch = FetchType.EAGER)
+    //articulo es la entidad que no es dueña (entidad fuerte)
+    //@ManyToMany(mappedBy = "articulos", cascade = {CascadeType.MERGE})
+    @ManyToMany(mappedBy = "articulos")
     private List<Categoria> categorias;
 
     @Override
     public String toString() {
-        return "{" + "id:" + this.id + ", titulo:" + this.titulo + ", fecha:"+ this.fechaCreacion + "}";
+        return "{" + "id:" + this.id + ", titulo:" + this.titulo + ", fecha:" + this.fechaCreacion + "}";
     }
 
     public List<Categoria> getCategorias() {

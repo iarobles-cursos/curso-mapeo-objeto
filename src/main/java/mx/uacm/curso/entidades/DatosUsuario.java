@@ -6,11 +6,13 @@
 package mx.uacm.curso.entidades;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -30,13 +32,22 @@ public class DatosUsuario {
     @Column(name = "fecha_registro")
     private Date fechaRegistro;
 
+    //@OneToOne(mappedBy = "datosUsuario", cascade={CascadeType.PERSIST})
+    @OneToOne(mappedBy = "datosUsuario", cascade = {CascadeType.REMOVE})
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public String toString() {
         return "{id:" + this.id + ", biografia:" + this.biografia + "}";
     }
-    
-    
-    
 
     public Integer getId() {
         return id;

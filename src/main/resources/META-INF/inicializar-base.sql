@@ -154,6 +154,14 @@ INSERT INTO usuarios(id, datos_autor_id, nombre, email, password, rol, activo) V
 INSERT INTO datos_usuarios(id,biografia,fecha_registro) VALUES(DEFAULT,'Usuario ficticio 2 creado para el curso', '2013-10-20');
 INSERT INTO usuarios(id, datos_autor_id, nombre, email, password,rol,activo) VALUES(DEFAULT,2,'Pepe', 'pepe@email.com','1234','ROLE_ADMIN',true);
 
+
+INSERT INTO datos_usuarios(id,biografia,fecha_registro) VALUES(DEFAULT,'Usuario ficticio 3 creado para el curso', '2013-10-20');
+INSERT INTO usuarios(id, datos_autor_id, nombre, email, password, rol, activo) VALUES(DEFAULT,3,'Juan Perez', 'juan@email.com','1234','ROLE_EDITOR',true);
+
+
+INSERT INTO datos_usuarios(id,biografia,fecha_registro) VALUES(DEFAULT,'Usuario ficticio 4 creado para el curso', '2013-10-20');
+INSERT INTO usuarios(id, datos_autor_id, nombre, email, password, rol, activo) VALUES(DEFAULT,4,'Juan Perez', 'juan@email.com','1234','ROLE_EDITOR',true);
+
 INSERT INTO datos_articulos(id,observaciones) VALUES(DEFAULT,'Observaciones adicionales para articulo 1');
 INSERT INTO datos_articulos(id,observaciones) VALUES(DEFAULT,'Observaciones adicionales para articulo 2');
 INSERT INTO datos_articulos(id,observaciones) VALUES(DEFAULT,'Observaciones adicionales para articulo 3');
@@ -163,6 +171,8 @@ INSERT INTO datos_articulos(id,observaciones) VALUES(DEFAULT,'Observaciones adic
 INSERT INTO articulos VALUES(DEFAULT,1,1,'titulo articulo 1','contenido articulo 1','2013-10-24');
 INSERT INTO articulos VALUES(DEFAULT,1,2,'titulo articulo 2','contenido articulo 2','2012-10-24');
 INSERT INTO articulos VALUES(DEFAULT,1,3,'titulo articulo 3','contenido articulo 3','2020-11-24');
+
+INSERT INTO articulos VALUES(DEFAULT,1,null,'titulo articulo 4','contenido articulo 4','2020-11-24');
 
 INSERT INTO comentarios VALUES(DEFAULT, 1, 'mi comentario 1','anonimo','2013-9-24');
 INSERT INTO comentarios VALUES(DEFAULT, 1, 'mi comentario 2','anonimo','2013-11-24');
@@ -176,12 +186,17 @@ INSERT INTO categorias VALUES(DEFAULT, 'java');
 INSERT INTO categorias VALUES(DEFAULT, 'linux');
 INSERT INTO categorias VALUES(DEFAULT, 'jpa');
 
+INSERT INTO categorias VALUES(DEFAULT, 'jtests');
+
 INSERT INTO categorias_articulos VALUES(1,1);
 INSERT INTO categorias_articulos VALUES(2,1);
 INSERT INTO categorias_articulos VALUES(3,1);
 
 INSERT INTO categorias_articulos VALUES(1,2);
 INSERT INTO categorias_articulos VALUES(2,2);
+
+INSERT INTO categorias_articulos VALUES(4,4);
+INSERT INTO categorias_articulos VALUES(4,2);
 
 
 INSERT INTO departamentos VALUES(DEFAULT,'deportes');

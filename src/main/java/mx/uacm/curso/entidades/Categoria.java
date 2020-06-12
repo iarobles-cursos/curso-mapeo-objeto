@@ -42,7 +42,8 @@ public class Categoria {
     //joinColumns se llena del nombre de la columna
     //de la tabla intermedia que esta relacionada
     //con la entidad dueña
-    @ManyToMany(cascade=CascadeType.MERGE)
+    //@ManyToMany(cascade=CascadeType.MERGE)
+    @ManyToMany
     @JoinTable(
             name = "categorias_articulos",
             joinColumns = @JoinColumn(name = "categoria_id"),

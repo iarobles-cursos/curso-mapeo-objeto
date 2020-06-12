@@ -47,12 +47,13 @@ public class Usuario {
 
     //relacionamos la entidad Usuario
     // con la entidad DatosUsuario
+    //@OneToOne(cascade = {CascadeType.PERSIST})
     @OneToOne
     @JoinColumn(name = "datos_autor_id")
     private DatosUsuario datosUsuario;
 
     //se debe de tener mucho cuidado con la propiedad fetch y la estregia eager loading.
-    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.PERSIST})
     @OrderBy("fechaCreacion DESC")
     private List<Articulo> articulos;
 
